@@ -6,13 +6,42 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>nearest</ion-title>
-  </ion-navbar>
 
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 </ion-header>
+<ion-content no-padding>
+    <ion-grid no-padding>
+        <ion-row>
+            <ion-col col-12>
+                <ion-card>
+                    <ion-list>
+                        <ion-toolbar color="oranssi">
+                            <h1>SODEXO</h1>
+                            <ion-buttons end>
+                                <button ion-button icon-right color="royal">
+                                    <ion-icon name="star"></ion-icon>
+                                </button>
+                            </ion-buttons>
+                        </ion-toolbar>
+                    </ion-list>
+                    <ion-card-content>
+                        Uunimakkaraa ja perunasosetta . G
 
+                        Tonnikalakastiketta ja täysjyväpastaa G M
 
-<ion-content padding>
-  <h1>Lähimmät</h1>
+                        Linssi-tomaattipastaa M
+
+                        Chicken Burger ja lohkoperunat M
+
+                        Lounaspatonki feta-kasvistäytteellä
+
+                        Punajuurisosekeittoa G M
+
+                        Vatkattua raparperi-mansikkapuuroa
+
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

@@ -14,3 +14,116 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.lol {
+  column-count: 5;
+  column-gap: 0.5em;
+}
+
+@supports (column-count: 5) {
+  .wrapper {
+    -moz-column-count: 5;
+    -webkit-column-count: 5;
+    column-count: 5;
+    -moz-column-gap: 0.5em;
+    -webkit-column-gap: 0.5em;
+    column-gap: 0.5em;
+
+
+    section {
+      width: 100%;
+      margin: 0 0.5em 0.5em 0;
+      padding: 1em;
+      display: inline-block;
+      color: rgba(68, 68, 68, 1);
+      text-align: center;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+
+      img {
+        display : block;
+        margin: 0 auto 2em auto;
+        width: 90px;
+      }
+    }
+  }
+
+
+  /// Define 4 column count for screen sizes up to 1200 pixels in width
+  @media only screen and (max-width: 1200px) {
+    .wrapper {
+      -moz-column-count: 4;
+      -webkit-column-count: 4;
+      column-count: 4;
+    }
+  }
+
+
+  /// Define 3 column count for screen sizes up to 900 pixels in width
+  @media only screen and (max-width: 900px) {
+    .wrapper {
+      -moz-column-count: 3;
+      -webkit-column-count: 3;
+      column-count: 3;
+    }
+  }
+
+
+  /// Define 2 column count for screen sizes up to 800 pixels in width
+  @media only screen and (max-width: 800px) {
+    .wrapper {
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-count: 2;
+    }
+  }
+
+
+  /// Define 1 column count for screen sizes up to 600 pixels in width
+  @media only screen and (max-width: 600px) {
+    .wrapper {
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-count: 2;
+      -moz-column-gap: 1px;
+      -webkit-column-gap: 1px;
+      column-gap: 1px;
+    }
+  }
+}
+
+
+
+
+.red {
+  background-color: rgba(220, 83, 81, 1);
+}
+
+.green {
+  background-color: rgba(187, 225, 123, 1);
+}
+
+.blue {
+  background-color: rgba(131, 150, 225, 1);
+}
+
+.purple {
+  background-color: rgba(155, 121, 170, 1);
+}
+
+.yellow {
+  background-color: rgba(235, 229, 39, 1);
+}
+
+.violet {
+  background-color: rgba(213, 118, 211, 1);
+}
+
+.orange {
+  background-color: rgba(213, 151, 46, 1);
+}
+
+.turquoise {
+  background-color: rgba(105, 203, 217, 1);
+}

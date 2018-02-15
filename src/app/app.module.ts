@@ -10,6 +10,7 @@ import {NavibotPage} from "../pages/navibot/navibot";
 import {FavesPage} from "../pages/faves/faves";
 import {NearestPage} from "../pages/nearest/nearest";
 import {MapPage} from "../pages/map/map";
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import {MapPage} from "../pages/map/map";
     ],
     imports: [
         BrowserModule,
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp),
+        AgmCoreModule.forRoot({apiKey: 'AIzaSyBQpwzaKXT7X_0aWMQnqU3uIZXbRIiNPgk'})
     ],
     bootstrap: [IonicApp],
     entryComponents: [

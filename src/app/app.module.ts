@@ -11,6 +11,8 @@ import {FavesPage} from "../pages/faves/faves";
 import {NearestPage} from "../pages/nearest/nearest";
 import {MapPage} from "../pages/map/map";
 import {AgmCoreModule} from "@agm/core";
+import { LocationProvider } from '../providers/location/location';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -24,7 +26,8 @@ import {AgmCoreModule} from "@agm/core";
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
-        AgmCoreModule.forRoot({apiKey: 'AIzaSyBQpwzaKXT7X_0aWMQnqU3uIZXbRIiNPgk'})
+        AgmCoreModule.forRoot({apiKey: 'AIzaSyBQpwzaKXT7X_0aWMQnqU3uIZXbRIiNPgk'}),
+        HttpClientModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -38,7 +41,8 @@ import {AgmCoreModule} from "@agm/core";
     providers: [
         StatusBar,
         SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LocationProvider
     ]
 })
 export class AppModule {

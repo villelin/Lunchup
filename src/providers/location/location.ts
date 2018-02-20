@@ -1,5 +1,5 @@
-import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {Observable} from "rxjs/Observable";
 
 /*
   Generated class for the LocationProvider provider.
@@ -10,13 +10,16 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class LocationProvider {
 
-    apiUrl: string = 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDBR94nkQHoIRfDDESusGoaYjXwFiomo1g';
-
-    constructor(public http: HttpClient) {
+    constructor() {
         console.log('Hello LocationProvider Provider');
     }
 
     getLocation() {
-        return this.http.post(this.apiUrl, null);
+        return Observable.create(observer => {
+            navigator.geolocation.getCurrentPosition((position) => {
+                observer.next(position);
+                observer.complete();
+            });
+        });
     }
 }

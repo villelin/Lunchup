@@ -25,9 +25,10 @@ export class MapPage {
     ionViewDidLoad() {
         console.log('ionViewDidLoad MapPage');
 
+
         this.locationProvider.getLocation().subscribe((response) => {
-            this.latitude = response['location'].lat;
-            this.longitude = response['location'].lng;
+            this.latitude = response['coords'].latitude;
+            this.longitude = response['coords'].longitude;
             console.log(`lat = ${this.latitude}, lon = ${this.longitude}`);
         }, (error) => {
             console.log(error);

@@ -5,7 +5,6 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
 
 import {MyApp} from './app.component';
-import {HomePage} from '../pages/home/home';
 import {NavibotPage} from "../pages/navibot/navibot";
 import {FavesPage} from "../pages/faves/faves";
 import {NearestPage} from "../pages/nearest/nearest";
@@ -17,7 +16,6 @@ import {HttpClientModule} from "@angular/common/http";
 @NgModule({
     declarations: [
         MyApp,
-        HomePage,
         NavibotPage,
         FavesPage,
         NearestPage,
@@ -32,7 +30,6 @@ import {HttpClientModule} from "@angular/common/http";
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage,
         NavibotPage,
         FavesPage,
         NearestPage,

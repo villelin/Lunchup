@@ -12,6 +12,8 @@ import {MapPage} from "../pages/map/map";
 import {AgmCoreModule} from "@agm/core";
 import { LocationProvider } from '../providers/location/location';
 import {HttpClientModule} from "@angular/common/http";
+import { SodexoProvider } from '../providers/sodexo/sodexo';
+import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
 
 @NgModule({
     declarations: [
@@ -39,7 +41,9 @@ import {HttpClientModule} from "@angular/common/http";
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LocationProvider
+    LocationProvider,
+    SodexoProvider,
+    WikipediaProvider
     ]
 })
 export class AppModule {

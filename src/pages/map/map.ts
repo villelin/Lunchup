@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {LocationProvider} from "../../providers/location/location";
 
 /**
  * Generated class for the MapPage page.
@@ -10,16 +11,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-map',
-  templateUrl: 'map.html',
+    selector: 'page-map',
+    templateUrl: 'map.html',
 })
 export class MapPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    latitude: number = 0;
+    longitude: number = 0;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MapPage');
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, private locationProvider: LocationProvider) {
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad MapPage');
+
+
+        this.locationProvider.getLocation().subscribe((response) => {
+            this.latitude = response['coords'].latitude;
+            this.longitude = response['coords'].longitude;
+            console.log(`lat = ${this.latitude}, lon = ${this.longitude}`);
+        }, (error) => {
+            console.log(error);
+        });
+    }
 
 }

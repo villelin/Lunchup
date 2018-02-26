@@ -5,17 +5,17 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
 
 import {MyApp} from './app.component';
-import {HomePage} from '../pages/home/home';
 import {NavibotPage} from "../pages/navibot/navibot";
 import {FavesPage} from "../pages/faves/faves";
 import {NearestPage} from "../pages/nearest/nearest";
 import {MapPage} from "../pages/map/map";
 import {AgmCoreModule} from "@agm/core";
+import { LocationProvider } from '../providers/location/location';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
         MyApp,
-        HomePage,
         NavibotPage,
         FavesPage,
         NearestPage,
@@ -24,12 +24,12 @@ import {AgmCoreModule} from "@agm/core";
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
-        AgmCoreModule.forRoot({apiKey: 'AIzaSyBQpwzaKXT7X_0aWMQnqU3uIZXbRIiNPgk'})
+        AgmCoreModule.forRoot({apiKey: 'AIzaSyBQpwzaKXT7X_0aWMQnqU3uIZXbRIiNPgk'}),
+        HttpClientModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage,
         NavibotPage,
         FavesPage,
         NearestPage,
@@ -38,7 +38,8 @@ import {AgmCoreModule} from "@agm/core";
     providers: [
         StatusBar,
         SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LocationProvider
     ]
 })
 export class AppModule {

@@ -20,6 +20,33 @@
   column-gap: 0.5em;
 }
 
+#otsikkoR {
+
+}
+
+.pnolla{
+  padding: 0;
+  color: #2ec95c;
+}
+.kymppi{
+  padding-left: 10px;
+  margin: 0px !important ;
+}
+
+ion-card {
+margin-right: 0 !important;
+
+}
+ion-content{
+  padding-left: 5px;
+  padding-right: 5px;
+
+}
+
+.card-ios{
+  margin: 0px;
+  width: calc(100% - 0px);
+}
 @supports (column-count: 5) {
   .wrapper {
     -moz-column-count: 5;
@@ -30,10 +57,10 @@
     column-gap: 0.5em;
 
 
-    section {
+    ion-card {
       width: 100%;
       margin: 0 0.5em 0.5em 0;
-      padding: 1em;
+      padding: 0em;
       display: inline-block;
       color: rgba(68, 68, 68, 1);
       text-align: center;

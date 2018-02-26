@@ -12,6 +12,7 @@ import {MapPage} from "../pages/map/map";
 import {AgmCoreModule} from "@agm/core";
 import { LocationProvider } from '../providers/location/location';
 import {HttpClientModule} from "@angular/common/http";
+import { AmicaProvider } from '../providers/amica/amica';
 import { SodexoProvider } from '../providers/sodexo/sodexo';
 import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
 
@@ -42,6 +43,7 @@ import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
     LocationProvider,
+    AmicaProvider,
     SodexoProvider,
     WikipediaProvider
     ]

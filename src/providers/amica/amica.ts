@@ -28,6 +28,7 @@ export class AmicaProvider {
 
                 const name = response['RestaurantName'];
                 const address = "Osoite tulee tähän";
+                const coords = { latitude: 0, longitude: 0 };   // laita koordinaatit
 
                 const list = response['MenusForDays'][day-1]['SetMenus'];
 
@@ -56,7 +57,7 @@ export class AmicaProvider {
                     items.push(food);
                 });
 
-                const menu = new LunchMenu(name, address, items);
+                const menu = new LunchMenu(name, address, items, coords);
 
                 observer.next(menu);
                 observer.complete();

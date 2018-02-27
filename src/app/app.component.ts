@@ -5,12 +5,15 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {NavibotPage} from "../pages/navibot/navibot";
 import {AmicaProvider} from "../providers/amica/amica";
+import {LunchMenu} from "../models/lunchmenu";
 
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
     rootPage: any = NavibotPage;
+
+    lunchmenus: LunchMenu[];
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, amicaProvider: AmicaProvider) {
         platform.ready().then(() => {
@@ -20,7 +23,10 @@ export class MyApp {
             splashScreen.hide();
 
             amicaProvider.getMenu(3007).subscribe((response) => {
-                console.log(response);
+                //console.log(response);
+                this.lunchmenus = response;
+
+                console.log(this.lunchmenus);
             });
         });
     }

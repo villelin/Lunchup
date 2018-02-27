@@ -6,6 +6,9 @@
 *.log
 *.tmp
 *.tmp.*
+*.bat
+*.key
+*.apk
 log.txt
 *.sublime-project
 *.sublime-workspace

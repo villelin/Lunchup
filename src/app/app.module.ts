@@ -16,6 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AmicaProvider } from '../providers/amica/amica';
 import { SodexoProvider } from '../providers/sodexo/sodexo';
 import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
+import { PlaceProvider } from '../providers/place/place';
 
 @NgModule({
     declarations: [
@@ -47,7 +48,8 @@ import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
     LocationProvider,
     AmicaProvider,
     SodexoProvider,
-    WikipediaProvider
+    WikipediaProvider,
+    PlaceProvider
     ]
 })
 export class AppModule {

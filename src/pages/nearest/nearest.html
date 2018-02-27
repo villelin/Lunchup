@@ -13,11 +13,12 @@
     <ion-grid no-padding>
         <ion-row>
             <ion-col col-12>
-                <ion-card>
+                <ion-card *ngFor="let menu of placeProvider.menus">
                     <ion-list>
                         <ion-toolbar color="oranssi">
-                            <h1>SODEXO</h1>
-                            <p>Vanha maantie 6</p>
+                            <h1>{{ menu.name }}</h1>
+                            <p>{{ menu.address }}</p>
+
                             <ion-buttons end>
                                 <button ion-button icon-right color="royal">
                                     <ion-icon name="star"></ion-icon>
@@ -25,7 +26,15 @@
                             </ion-buttons>
                         </ion-toolbar>
                     </ion-list>
-                    <ion-card-content>
+                    <ion-card-content *ngFor="let item of menu.items">
+                        <ion-item>
+                            <p *ngFor="let line of item.food">
+                                {{ line.food }} --- {{ line.diets }}
+                            </p>
+                        </ion-item>
+
+
+                        <!--
                         Uunimakkaraa ja perunasosetta . G
 
                         Tonnikalakastiketta ja täysjyväpastaa G M
@@ -39,7 +48,7 @@
                         Punajuurisosekeittoa G M
 
                         Vatkattua raparperi-mansikkapuuroa
-
+                        -->
                     </ion-card-content>
                 </ion-card>
             </ion-col>

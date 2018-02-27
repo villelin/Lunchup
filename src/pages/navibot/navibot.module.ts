@@ -4,7 +4,6 @@ import { NavibotPage } from './navibot';
 
 @NgModule({
   declarations: [
-    NavibotPage,
   ],
   imports: [
     IonicPageModule.forChild(NavibotPage),

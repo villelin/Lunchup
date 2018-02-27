@@ -3,6 +3,7 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
+import {Geolocation} from '@ionic-native/geolocation';
 
 import {MyApp} from './app.component';
 import {NavibotPage} from "../pages/navibot/navibot";
@@ -42,6 +43,7 @@ import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
+        Geolocation,
     LocationProvider,
     AmicaProvider,
     SodexoProvider,

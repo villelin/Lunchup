@@ -3,6 +3,7 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
+import {Geolocation} from '@ionic-native/geolocation';
 
 import {MyApp} from './app.component';
 import {NavibotPage} from "../pages/navibot/navibot";
@@ -12,6 +13,11 @@ import {MapPage} from "../pages/map/map";
 import {AgmCoreModule} from "@agm/core";
 import { LocationProvider } from '../providers/location/location';
 import {HttpClientModule} from "@angular/common/http";
+import { AmicaProvider } from '../providers/amica/amica';
+import { SodexoProvider } from '../providers/sodexo/sodexo';
+import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
+import { PlaceProvider } from '../providers/place/place';
+import { LaureaProvider } from '../providers/laurea/laurea';
 
 @NgModule({
     declarations: [
@@ -39,7 +45,13 @@ import {HttpClientModule} from "@angular/common/http";
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LocationProvider
+        Geolocation,
+    LocationProvider,
+    AmicaProvider,
+    SodexoProvider,
+    WikipediaProvider,
+    PlaceProvider,
+    LaureaProvider
     ]
 })
 export class AppModule {

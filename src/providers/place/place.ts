@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {LunchMenu} from "../../models/lunchmenu";
 import {AmicaProvider} from "../amica/amica";
 import {LaureaProvider} from "../laurea/laurea";
+import {forkJoin} from "rxjs/observable/forkJoin";
 
 /*
   Generated class for the PlaceProvider provider.
@@ -20,17 +21,28 @@ export class PlaceProvider {
                 public laureaProvider: LaureaProvider) {
         console.log('Hello PlaceProvider Provider');
 
+        /*
         amicaProvider.getMenu(0).subscribe((response) => {
             //console.log(response);
             this.menus.push(response);
 
-            console.log(this.menus);
+            //console.log(this.menus);
         });
 
         laureaProvider.getMenu().subscribe((response) => {
            this.menus.push(response);
 
-           console.log(this.menus);
+           //console.log(this.menus);
+        });
+        */
+
+        let amica = amicaProvider.getMenu(0);
+        let laurea = laureaProvider.getMenu();
+
+        forkJoin([amica, laurea]).subscribe((results) => {
+            results.forEach((result) => {
+                this.menus.push(result);
+            });
         });
     }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
+import {MenuModalPage} from "../menu-modal/menu-modal";
 
 /**
  * Generated class for the FavesPage page.
@@ -15,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FavesPage {
     images: any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
 
       this.images = [
           'https://www.placecage.com/g/200/1000',
@@ -36,5 +37,10 @@ export class FavesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavesPage');
   }
+
+    presentMenuModal() {
+        let MenuModal = this.modalCtrl.create(MenuModalPage, { userId: 8675309 });
+        MenuModal.present();
+    }
 
 }

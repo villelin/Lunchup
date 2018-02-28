@@ -19,6 +19,7 @@ import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
 import { PlaceProvider } from '../providers/place/place';
 import { LaureaProvider } from '../providers/laurea/laurea';
 import { SubwayProvider } from '../providers/subway/subway';
+import {MenuModalPage} from "../pages/menu-modal/menu-modal";
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { SubwayProvider } from '../providers/subway/subway';
         NavibotPage,
         FavesPage,
         NearestPage,
-        MapPage
+        MapPage,
+        MenuModalPage
     ],
     imports: [
         BrowserModule,
@@ -40,7 +42,8 @@ import { SubwayProvider } from '../providers/subway/subway';
         NavibotPage,
         FavesPage,
         NearestPage,
-        MapPage
+        MapPage,
+        MenuModalPage
     ],
     providers: [
         StatusBar,

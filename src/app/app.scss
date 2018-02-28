@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -15,32 +14,32 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-img{
+img {
   max-width: 85px;
 
 }
-.logo{
-text-align: center;
-padding-bottom: 16px;
+
+.logo {
+  text-align: center;
+  padding-bottom: 16px;
   //background-color: #DD6570;
   margin-bottom: 10px;
 }
-
 
 .lol {
   column-count: 5;
 
 }
 
-button{
+button {
   padding: 0px !important;
 }
 
-ion-buttons{
+ion-buttons {
   padding-bottom: 18px;
 }
 
-ion-toolbar{
+ion-toolbar {
   padding-left: 16px !important;
   padding-right: 16px !important;
 }
@@ -49,29 +48,30 @@ ion-toolbar{
 
 }
 
-.pnolla{
+.pnolla {
   padding: 0;
   color: #2ec95c;
 }
-.kymppi{
 
-  margin: 0px !important ;
+.kymppi {
+
+  margin: 0px !important;
   text-align: left;
   color: white !important;
 }
 
-
-.scroll-content{
+.scroll-content {
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-bottom: 0px !important;
 
 }
 
-.card-ios{
+.card-ios {
   margin: 0px;
   width: calc(100% - 0px);
 }
+
 @supports (column-count: 5) {
   .wrapper {
     -moz-column-count: 5;
@@ -80,7 +80,6 @@ ion-toolbar{
     -moz-column-gap: 0.5em;
     -webkit-column-gap: 0.5em;
     column-gap: 5px;
-
 
     ion-card {
       width: 100%;
@@ -94,13 +93,12 @@ ion-toolbar{
       box-sizing: border-box;
 
       img {
-        display : block;
+        display: block;
         margin: 0 auto 2em auto;
         width: 90px;
       }
     }
   }
-
 
   /// Define 4 column count for screen sizes up to 1200 pixels in width
   @media only screen and (max-width: 1200px) {
@@ -111,7 +109,6 @@ ion-toolbar{
     }
   }
 
-
   /// Define 3 column count for screen sizes up to 900 pixels in width
   @media only screen and (max-width: 900px) {
     .wrapper {
@@ -121,7 +118,6 @@ ion-toolbar{
     }
   }
 
-
   /// Define 2 column count for screen sizes up to 800 pixels in width
   @media only screen and (max-width: 800px) {
     .wrapper {
@@ -130,7 +126,6 @@ ion-toolbar{
       column-count: 2;
     }
   }
-
 
   /// Define 1 column count for screen sizes up to 600 pixels in width
   @media only screen and (max-width: 600px) {
@@ -145,9 +140,6 @@ ion-toolbar{
     }
   }
 }
-
-
-
 
 .red {
   background-color: rgba(220, 83, 81, 1);

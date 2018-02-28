@@ -20,6 +20,7 @@ import { PlaceProvider } from '../providers/place/place';
 import { LaureaProvider } from '../providers/laurea/laurea';
 import { SubwayProvider } from '../providers/subway/subway';
 import {MenuModalPage} from "../pages/menu-modal/menu-modal";
+import {RandomModalPage} from "../pages/random-modal/random-modal";
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import {MenuModalPage} from "../pages/menu-modal/menu-modal";
         FavesPage,
         NearestPage,
         MapPage,
-        MenuModalPage
+        MenuModalPage,
+        RandomModalPage
     ],
     imports: [
         BrowserModule,
@@ -43,7 +45,8 @@ import {MenuModalPage} from "../pages/menu-modal/menu-modal";
         FavesPage,
         NearestPage,
         MapPage,
-        MenuModalPage
+        MenuModalPage,
+        RandomModalPage
     ],
     providers: [
         StatusBar,

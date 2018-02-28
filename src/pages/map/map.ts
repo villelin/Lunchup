@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LocationProvider} from "../../providers/location/location";
+import {PlaceProvider} from "../../providers/place/place";
 
 /**
  * Generated class for the MapPage page.
@@ -19,7 +20,8 @@ export class MapPage {
     latitude: number = 0;
     longitude: number = 0;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private locationProvider: LocationProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private locationProvider: LocationProvider,
+                public placeProvider: PlaceProvider) {
     }
 
     ionViewDidLoad() {

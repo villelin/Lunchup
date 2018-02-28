@@ -15,20 +15,30 @@ import {LunchItem} from "../../models/lunchitem";
 export class AmicaProvider {
     apiUrl: string = "http://www.amica.fi/modules/json/json";
 
+    restaurants = [
+        {   name: 'Jamipaja',
+            fullname: 'Pop&Jazz Konservatorio Jamipaja',
+            id: 3007,
+            coords: { latitude: 60.2070978, longitude: 24.9751877 }
+        }
+    ];
+
     constructor(public http: HttpClient) {
         console.log('Hello AmicaProvider Provider');
     }
 
     getMenu(restaurant: number) {
         return Observable.create(observer => {
-            this.http.get(`${this.apiUrl}/Index?costNumber=${restaurant}&language=fi`).subscribe((response) => {
+            const id = this.restaurants[restaurant].id;
+            this.http.get(`${this.apiUrl}/Index?costNumber=${id}&language=fi`).subscribe((response) => {
                 const d = new Date();
                 const day = d.getDay();
 
 
-                const name = response['RestaurantName'];
-                const address = "Osoite tulee tähän";
-                const coords = { latitude: 0, longitude: 0 };   // laita koordinaatit
+                const name = this.restaurants[restaurant].name;
+                const address = this.restaurants[restaurant].fullname;
+                const coords = { latitude: this.restaurants[restaurant].coords.latitude,
+                                 longitude: this.restaurants[restaurant].coords.longitude };   // laita koordinaatit
 
                 const list = response['MenusForDays'][day-1]['SetMenus'];
 

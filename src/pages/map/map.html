@@ -20,5 +20,8 @@
 <ion-content no-padding>
     <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15" [zoomControl]="false" [streetViewControl]="false">
         <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="40" [fillOpacity]="0.50" [fillColor]="'#00009A'"></agm-circle>
+
+        <agm-marker *ngFor="let menus of placeProvider.menus" [latitude]="menus.location.latitude" [longitude]="menus.location.longitude"></agm-marker>
+
     </agm-map>
 </ion-content>

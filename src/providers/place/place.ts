@@ -17,7 +17,7 @@ export class PlaceProvider {
     constructor(public http: HttpClient, public amicaProvider: AmicaProvider) {
         console.log('Hello PlaceProvider Provider');
 
-        amicaProvider.getMenu(3007).subscribe((response) => {
+        amicaProvider.getMenu(0).subscribe((response) => {
             //console.log(response);
             this.menus.push(response);
 

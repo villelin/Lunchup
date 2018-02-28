@@ -17,6 +17,7 @@ import { AmicaProvider } from '../providers/amica/amica';
 import { SodexoProvider } from '../providers/sodexo/sodexo';
 import { WikipediaProvider } from '../providers/wikipedia/wikipedia';
 import { PlaceProvider } from '../providers/place/place';
+import { LaureaProvider } from '../providers/laurea/laurea';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { PlaceProvider } from '../providers/place/place';
     AmicaProvider,
     SodexoProvider,
     WikipediaProvider,
-    PlaceProvider
+    PlaceProvider,
+    LaureaProvider
     ]
 })
 export class AppModule {

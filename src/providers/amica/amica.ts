@@ -37,9 +37,10 @@ export class AmicaProvider {
 
                 const name = this.restaurants[restaurant].name;
                 const address = this.restaurants[restaurant].fullname;
-                const coords = { latitude: this.restaurants[restaurant].coords.latitude,
+                const coords = this.restaurants[restaurant].coords;
+                /*const coords = { latitude: this.restaurants[restaurant].coords.latitude,
                                  longitude: this.restaurants[restaurant].coords.longitude };   // laita koordinaatit
-
+*/
                 const list = response['MenusForDays'][day-1]['SetMenus'];
 
                 const items = new Array();

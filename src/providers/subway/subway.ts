@@ -34,13 +34,42 @@ export class SubwayProvider {
     restaurants = [
         {
             name: "Subway Sello",
-            fullname: "Sellon osoite",
+            fullname: "Leppävaarankatu 3-9",
             coords: { latitude: 60.2184236, longitude: 24.8121317 }
-        }
+        },
+        {
+            name: "Subway Lönnrotinkatu",
+            fullname: "Lönnrotinkatu 35",
+            coords: { latitude: 60.1636791, longitude: 24.9293261 }
+        },
+        {
+            name: "Subway Isoroobertinkatu",
+            fullname: "Isoroobertinkatu 23",
+            coords: { latitude: 60.162284, longitude: 24.9380575 }
+        },
+        {
+            name: "Subway Forum",
+            fullname: "Mannerheimintie 14-20",
+            coords: { latitude: 60.1681491, longitude: 24.9359927 }
+        },
+        {
+            name: "Subway Citycenter",
+            fullname: "Kaivokatu 8",
+            coords: { latitude: 60.1698665, longitude: 24.9413462 }
+        },
+        {
+            name: "Subway Kaivopiha",
+            fullname: "Mannerheimintie 3-5",
+            coords: { latitude: 60.1693185, longitude: 24.939934 }
+        },
     ];
 
     constructor(public http: HttpClient) {
         console.log('Hello SubwayProvider Provider');
+    }
+
+    getNumRestaurants() {
+        return this.restaurants.length;
     }
 
     getMenu(restaurant: number) {

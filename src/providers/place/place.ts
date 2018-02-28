@@ -38,11 +38,20 @@ export class PlaceProvider {
         });
         */
 
+        /*
         let amica = amicaProvider.getMenu(0);
         let laurea = laureaProvider.getMenu();
         let subway = subwayProvider.getMenu(0);
+*/
 
-        forkJoin([amica, laurea, subway]).subscribe((results) => {
+        let restaurants = [];
+        restaurants.push(this.amicaProvider.getMenu(0));
+        restaurants.push(this.laureaProvider.getMenu());
+        for (let i=0; i < this.subwayProvider.getNumRestaurants(); i++) {
+            restaurants.push(this.subwayProvider.getMenu(i));
+        }
+
+        forkJoin(restaurants).subscribe((results) => {
             results.forEach((result) => {
                 this.menus.push(result);
             });

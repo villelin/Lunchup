@@ -28,7 +28,7 @@
                     <ion-card-content *ngFor="let item of menu.items">
                         <ion-item>
                             <p *ngFor="let line of item.food">
-                                {{ line.food }} --- {{ line.diets }}
+                                {{ line.food }} --- <ion-badge>{{ line.diets }}</ion-badge>
                             </p>
                         </ion-item>
 

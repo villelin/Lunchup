@@ -4,6 +4,7 @@ import {LunchMenu} from "../../models/lunchmenu";
 import {AmicaProvider} from "../amica/amica";
 import {LaureaProvider} from "../laurea/laurea";
 import {forkJoin} from "rxjs/observable/forkJoin";
+import {SubwayProvider} from "../subway/subway";
 
 /*
   Generated class for the PlaceProvider provider.
@@ -18,7 +19,8 @@ export class PlaceProvider {
 
     constructor(public http: HttpClient,
                 public amicaProvider: AmicaProvider,
-                public laureaProvider: LaureaProvider) {
+                public laureaProvider: LaureaProvider,
+                public subwayProvider: SubwayProvider) {
         console.log('Hello PlaceProvider Provider');
 
         /*
@@ -38,8 +40,9 @@ export class PlaceProvider {
 
         let amica = amicaProvider.getMenu(0);
         let laurea = laureaProvider.getMenu();
+        let subway = subwayProvider.getMenu(0);
 
-        forkJoin([amica, laurea]).subscribe((results) => {
+        forkJoin([amica, laurea, subway]).subscribe((results) => {
             results.forEach((result) => {
                 this.menus.push(result);
             });

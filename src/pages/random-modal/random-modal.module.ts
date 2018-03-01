@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { MenuModalPage } from './menu-modal';
+import { RandomModalPage } from './random-modal';
 
 @NgModule({
   declarations: [
   ],
   imports: [
-    IonicPageModule.forChild(MenuModalPage),
+    IonicPageModule.forChild(RandomModalPage),
   ],
 })
-export class MenuModalPageModule {}
+export class RandomModalPageModule {}

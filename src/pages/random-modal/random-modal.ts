@@ -32,18 +32,18 @@ export class RandomModalPage {
 
         const loader = this.loadingCtrl.create({
             content: 'Arvotaan...',
-            duration: 3000,
+            duration: 1900,
             spinner: 'crescent'
         });
 
         loader.onDidDismiss(() => {
-            const restaurant_num = Math.floor(Math.random() * this.placeProvider.menus.length);
+            const restaurant_num = Math.floor(Math.random() * this.placeProvider.nearest_menus.length);
 
-            const food_num = Math.floor(Math.random() * this.placeProvider.menus[restaurant_num].items.length);
+            const food_num = Math.floor(Math.random() * this.placeProvider.nearest_menus[restaurant_num].items.length);
 
-            this.food = this.placeProvider.menus[restaurant_num].items[food_num].food;
-            this.restaurant = this.placeProvider.menus[restaurant_num].name;
-            this.restaurant_address = this.placeProvider.menus[restaurant_num].address;
+            this.food = this.placeProvider.nearest_menus[restaurant_num].items[food_num].food;
+            this.restaurant = this.placeProvider.nearest_menus[restaurant_num].name;
+            this.restaurant_address = this.placeProvider.nearest_menus[restaurant_num].address;
 
             this.done = true;
         });

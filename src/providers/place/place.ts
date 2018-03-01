@@ -5,6 +5,7 @@ import {AmicaProvider} from "../amica/amica";
 import {LaureaProvider} from "../laurea/laurea";
 import {forkJoin} from "rxjs/observable/forkJoin";
 import {SubwayProvider} from "../subway/subway";
+import {LocationProvider} from "../location/location";
 
 /*
   Generated class for the PlaceProvider provider.
@@ -17,32 +18,14 @@ export class PlaceProvider {
 
     menus = new Array();
 
+    nearest_menus = new Array();
+
     constructor(public http: HttpClient,
+                public locationProvider: LocationProvider,
                 public amicaProvider: AmicaProvider,
                 public laureaProvider: LaureaProvider,
                 public subwayProvider: SubwayProvider) {
         console.log('Hello PlaceProvider Provider');
-
-        /*
-        amicaProvider.getMenu(0).subscribe((response) => {
-            //console.log(response);
-            this.menus.push(response);
-
-            //console.log(this.menus);
-        });
-
-        laureaProvider.getMenu().subscribe((response) => {
-           this.menus.push(response);
-
-           //console.log(this.menus);
-        });
-        */
-
-        /*
-        let amica = amicaProvider.getMenu(0);
-        let laurea = laureaProvider.getMenu();
-        let subway = subwayProvider.getMenu(0);
-*/
 
         let restaurants = [];
         restaurants.push(this.amicaProvider.getMenu(0));
@@ -55,7 +38,48 @@ export class PlaceProvider {
             results.forEach((result) => {
                 this.menus.push(result);
             });
+        }, (error) => {
+            console.log(error);
+        }, () => {
+            this.locationProvider.getLocation().subscribe((response) => {
+                const latitude = response['coords'].latitude;
+                const longitude = response['coords'].longitude;
+
+                // etsitään lähimmät
+                this.menus.forEach((item) => {
+                    const place_lat = item.location.latitude;
+                    const place_lon = item.location.longitude;
+
+                    const distance = this.haversineDistance(latitude, longitude, place_lat, place_lon);
+
+                    // lisää jos etäisyys < 1000 metriä
+                    if (distance <= 1000) {
+                        this.nearest_menus.push(item);
+                    }
+                })
+            })
         });
+    }
+
+    toRadians(degrees)
+    {
+        var pi = Math.PI;
+        return degrees * (pi/180);
+    }
+
+    haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
+        const r = 6371e3; // maapallon halkaisija
+        var φ1 = this.toRadians(lat1);
+        var φ2 = this.toRadians(lat2);
+        var Δφ = this.toRadians(lat2-lat1);
+        var Δλ = this.toRadians(lon2-lon1);
+
+        var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ/2) * Math.sin(Δλ/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+        return  r * c;
     }
 
 }

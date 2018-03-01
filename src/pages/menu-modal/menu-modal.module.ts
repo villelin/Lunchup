@@ -4,7 +4,6 @@ import { MenuModalPage } from './menu-modal';
 
 @NgModule({
   declarations: [
-    MenuModalPage,
   ],
   imports: [
     IonicPageModule.forChild(MenuModalPage),

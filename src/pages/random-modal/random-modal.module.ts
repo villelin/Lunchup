@@ -4,7 +4,6 @@ import { RandomModalPage } from './random-modal';
 
 @NgModule({
   declarations: [
-    RandomModalPage,
   ],
   imports: [
     IonicPageModule.forChild(RandomModalPage),

@@ -52,12 +52,12 @@ export class PlaceProvider {
 
                     const distance = this.haversineDistance(latitude, longitude, place_lat, place_lon);
 
-                    // lisää jos etäisyys < 1000 metriä
-                    if (distance <= 1000) {
+                    // lisää jos etäisyys < 1333 metriä
+                    if (distance <= 1333) {
                         this.nearest_menus.push(item);
                     }
-                })
-            })
+                });
+            });
         });
     }
 

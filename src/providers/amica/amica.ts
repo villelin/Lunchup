@@ -37,10 +37,8 @@ export class AmicaProvider {
                 const address = this.restaurants[restaurant].fullname;
                 const coords = this.restaurants[restaurant].coords;
 
+                // etsitään päivän ruoka
                 response['MenusForDays'].forEach((day) => {
-                    console.log(day);
-                    console.log(d.toString());
-
                     if (this.isSameDay(new Date(day['Date']), d)) {
                         const list = day['SetMenus'];
 

@@ -19,6 +19,49 @@ img {
 
 }
 
+p{
+  font-size: 8px !important;
+}
+
+.otsikkoRavintola {
+  background: #DD6570 !important;
+}
+
+.ruokalista{
+  padding: 0px;
+  vertical-align: text-top !important;
+}
+.osoite {
+  max-height: 25px !important;
+  text-overflow: ellipsis !important;
+  text-align: justify !important;
+  white-space: nowrap !important;
+  color: white !important;
+}
+ion-card-content{
+  padding-bottom: 0px !important;
+  padding-top: 5px !important;
+
+}
+
+ion-label{
+  margin: 0 !important;
+  white-space: normal;
+}
+
+ion-badge{
+  font-size: 8px;
+  white-space: normal;
+}
+ion-searchbar {
+  background-color: white !important;
+  border-bottom: 0.55px solid rgba(0, 0, 0, 0.3) !important;
+}
+
+.searchbar-input {
+  border: solid 1px #DD6570 !important;
+}
+
 .logo {
   text-align: center;
   padding-bottom: 16px;
@@ -35,13 +78,34 @@ button {
   padding: 0px !important;
 }
 
-ion-buttons {
+.faveButton {
   padding-bottom: 18px;
+
+}
+
+.modalClose {
+  margin-right: 10px !important;
 }
 
 ion-toolbar {
   padding-left: 16px !important;
   padding-right: 16px !important;
+  overflow: hidden !important;;
+
+  .toolbar-content {
+    overflow: hidden;
+
+  }
+
+}
+
+ion-card {
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+}
+
+.toolbar-content {
+
 }
 
 #otsikkoR {
@@ -56,7 +120,9 @@ ion-toolbar {
 .kymppi {
 
   margin: 0px !important;
-  text-align: left;
+  text-align: justify;
+  max-height: 25px;
+
   color: white !important;
 }
 
@@ -141,34 +207,3 @@ ion-toolbar {
   }
 }
 
-.red {
-  background-color: rgba(220, 83, 81, 1);
-}
-
-.green {
-  background-color: rgba(187, 225, 123, 1);
-}
-
-.blue {
-  background-color: rgba(131, 150, 225, 1);
-}
-
-.purple {
-  background-color: rgba(155, 121, 170, 1);
-}
-
-.yellow {
-  background-color: rgba(235, 229, 39, 1);
-}
-
-.violet {
-  background-color: rgba(213, 118, 211, 1);
-}
-
-.orange {
-  background-color: rgba(213, 151, 46, 1);
-}
-
-.turquoise {
-  background-color: rgba(105, 203, 217, 1);
-}

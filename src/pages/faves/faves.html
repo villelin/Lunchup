@@ -2,16 +2,16 @@
 
 <ion-content class="lol" padding>
     <section class="logo">
-    <img src="assets/imgs/Asset 4.svg">
+    <img class="heartbeat" src="assets/imgs/Asset 4.svg">
     </section>
   <div class="wrapper">
       <ion-card>
           <ion-toolbar color="primary">
-            <h3 class="kymppi" >METROPOLIA VANHA MAANTIE</h3>
+            <h3 (click)="presentMenuModal()" class="kymppi" >METROPOLIA VANHA MAANTIE</h3>
 
-              <ion-buttons end >
-              <button (click)="presentMenuModal()" ion-button icon-right color="royal">
-                <ion-icon name="radio-button-off"></ion-icon>
+              <ion-buttons end class="faveButton">
+              <button  ion-button icon-right color="royal">
+                <ion-icon name="star"></ion-icon>
               </button>
               </ion-buttons>
           </ion-toolbar>

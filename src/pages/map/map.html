@@ -18,6 +18,7 @@
 
 
 <ion-content no-padding>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15" [zoomControl]="false" [streetViewControl]="false">
         <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="40" [fillOpacity]="0.50" [fillColor]="'#00009A'"></agm-circle>
 

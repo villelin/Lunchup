@@ -68,16 +68,16 @@ export class PlaceProvider {
     }
 
     haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
-        const r = 6371e3; // maapallon halkaisija
-        var φ1 = this.toRadians(lat1);
-        var φ2 = this.toRadians(lat2);
-        var Δφ = this.toRadians(lat2-lat1);
-        var Δλ = this.toRadians(lon2-lon1);
+        const r = 6371e3; // maapallon halkaisija metreinä
+        const φ1 = this.toRadians(lat1);
+        const φ2 = this.toRadians(lat2);
+        const Δφ = this.toRadians(lat2-lat1);
+        const Δλ = this.toRadians(lon2-lon1);
 
-        var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+        const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
             Math.cos(φ1) * Math.cos(φ2) *
             Math.sin(Δλ/2) * Math.sin(Δλ/2);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
         return  r * c;
     }

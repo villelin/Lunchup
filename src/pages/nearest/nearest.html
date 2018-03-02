@@ -11,7 +11,7 @@
 <ion-content no-padding>
     <div class="wrapper">
         <span *ngFor="let menu of placeProvider.menus">
-            <ion-card *ngIf="search(menu.name, menu.items) && isNear(menu.location)">
+            <ion-card *ngIf="search(menu.name, menu.items) && placeProvider.isNear(menu.location)">
                 <ion-list>
                     <ion-toolbar color="primary">
                         <h2 (click)="presentMenuModal()" class="kymppi">

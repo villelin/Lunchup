@@ -37,13 +37,24 @@ export class RandomModalPage {
         });
 
         loader.onDidDismiss(() => {
-            const restaurant_num = Math.floor(Math.random() * this.placeProvider.nearest_menus.length);
+            const list = [];
 
-            const food_num = Math.floor(Math.random() * this.placeProvider.nearest_menus[restaurant_num].items.length);
+            this.placeProvider.menus.forEach((menu) => {
+                const lat = menu.location.latitude;
+                const lon = menu.location.longitude;
 
-            this.food = this.placeProvider.nearest_menus[restaurant_num].items[food_num].food;
-            this.restaurant = this.placeProvider.nearest_menus[restaurant_num].name;
-            this.restaurant_address = this.placeProvider.nearest_menus[restaurant_num].address;
+                if (this.placeProvider.isNear({latitude: lat, longitude: lon})) {
+                    list.push(menu);
+                }
+            });
+
+            const restaurant_num = Math.floor(Math.random() * list.length);
+
+            const food_num = Math.floor(Math.random() * list[restaurant_num].items.length);
+
+            this.food = list[restaurant_num].items[food_num].food;
+            this.restaurant = list[restaurant_num].name;
+            this.restaurant_address = list[restaurant_num].address;
 
             this.done = true;
         });

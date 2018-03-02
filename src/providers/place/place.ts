@@ -19,6 +19,9 @@ export class PlaceProvider {
 
     menus = new Array();
 
+    latitude: number = 0;
+    longitude: number = 0;
+
     constructor(public http: HttpClient,
                 public storage: Storage,
                 public locationProvider: LocationProvider,
@@ -27,6 +30,11 @@ export class PlaceProvider {
                 public subwayProvider: SubwayProvider,
                 public sodexoProvider: SodexoProvider) {
         console.log('Hello PlaceProvider Provider');
+
+        this.locationProvider.getLocation().subscribe((response) => {
+            this.latitude = response['coords'].latitude;
+            this.longitude = response['coords'].longitude;
+        });
 
         let restaurants = [];
         for (let i=0; i < this.amicaProvider.getNumRestaurants(); i++) {
@@ -121,4 +129,14 @@ export class PlaceProvider {
         return  r * c;
     }
 
+    isNear(coords: any) {
+        const cur_lat = this.latitude;
+        const cur_lon = this.longitude;
+        const distance= this.haversineDistance(cur_lat, cur_lon, coords.latitude, coords.longitude);
+        if (distance <= 1333) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

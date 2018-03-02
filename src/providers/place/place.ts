@@ -111,9 +111,6 @@ export class PlaceProvider {
                         this.nearest_menus[index].favourite = true;
                     }
                 });
-
-                console.log(this.menus);
-                console.log(this.nearest_menus);
             }
         });
     }

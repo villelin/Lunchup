@@ -6,55 +6,40 @@
 -->
 <ion-header>
 
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="setSearchTerm($event)"></ion-searchbar>
 </ion-header>
 <ion-content no-padding>
     <div class="wrapper">
-
-                <ion-card *ngFor="let menu of placeProvider.nearest_menus">
-                    <ion-list>
-                        <ion-toolbar  color="primary">
-
-                    <h2 (click)="presentMenuModal()" class="kymppi">{{ menu.name }}
-                    </h2>
-                    <p class="osoite">{{ menu.address }}</p>
-                    <ion-buttons end class="faveButton">
-                        <button ion-button icon-right color="royal"
+        <span *ngFor="let menu of placeProvider.nearest_menus">
+            <ion-card *ngIf="search(menu.name, menu.items)">
+                <ion-list>
+                    <ion-toolbar color="primary">
+                        <h2 (click)="presentMenuModal()" class="kymppi">
+                            {{ menu.name }}
+                        </h2>
+                        <p class="osoite">
+                            {{ menu.address }}
+                        </p>
+                        <ion-buttons end class="faveButton">
+                            <button ion-button icon-right color="royal"
                                 (click)="placeProvider.removeFavourite(menu.name,menu.address)" *ngIf="menu.favourite">
-                            <ion-icon name="star"></ion-icon>
-                        </button>
-                        <button ion-button icon-right color="royal"
+                                <ion-icon name="star"></ion-icon>
+                            </button>
+                            <button ion-button icon-right color="royal"
                                 (click)="placeProvider.addFavourite(menu.name,menu.address)" *ngIf="!menu.favourite">
-                            <ion-icon name="star-outline"></ion-icon>
-                        </button>
-                    </ion-buttons>
-                </ion-toolbar>
-            </ion-list>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </button>
+                        </ion-buttons>
+                    </ion-toolbar>
+                </ion-list>
                     <ion-card-content *ngFor="let item of menu.items">
                         <ion-item class="ruokalista">
                             <section *ngFor="let line of item.food">
                                 <p class="ruoka">{{ line.food }} </p> <p class="allergeenit"> {{ line.diets }}</p>
                             </section>
                         </ion-item>
-
-
-                        <!--
-                        Uunimakkaraa ja perunasosetta . G
-
-                        Tonnikalakastiketta ja täysjyväpastaa G M
-
-                        Linssi-tomaattipastaa M
-
-                        Chicken Burger ja lohkoperunat M
-
-                        Lounaspatonki feta-kasvistäytteellä
-
-                        Punajuurisosekeittoa G M
-
-                        Vatkattua raparperi-mansikkapuuroa
-                        -->
                     </ion-card-content>
-                </ion-card>
-
+            </ion-card>
+        </span>
     </div>
 </ion-content>

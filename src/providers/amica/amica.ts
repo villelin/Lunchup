@@ -28,6 +28,10 @@ export class AmicaProvider {
         console.log('Hello AmicaProvider Provider');
     }
 
+    getNumRestaurants() {
+        return this.restaurants.length;
+    }
+
     getMenu(restaurant: number) {
         return Observable.create(observer => {
             const id = this.restaurants[restaurant].id;
@@ -39,12 +43,12 @@ export class AmicaProvider {
                 const coords = this.restaurants[restaurant].coords;
                 const image = this.restaurants[restaurant].image;
 
+                const items = [];
+
                 // etsitään päivän ruoka
                 response['MenusForDays'].forEach((day) => {
                     if (this.isSameDay(new Date(day['Date']), d)) {
                         const list = day['SetMenus'];
-
-                        const items = new Array();
 
                         // ruokavaihtoehdot
                         list.forEach((item) => {
@@ -68,12 +72,11 @@ export class AmicaProvider {
                             const food = new LunchItem(food_lines);
                             items.push(food);
                         });
-
-                        const menu = new LunchMenu(name, address, items, coords, image);
-
-                        observer.next(menu);
                     }
                 });
+
+                const menu = new LunchMenu(name, address, items, coords, image);
+                observer.next(menu);
 
                 observer.complete();
             }, (error) => {

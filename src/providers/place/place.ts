@@ -31,12 +31,16 @@ export class PlaceProvider {
         console.log('Hello PlaceProvider Provider');
 
         let restaurants = [];
-        restaurants.push(this.amicaProvider.getMenu(0));
-        restaurants.push(this.laureaProvider.getMenu());
-        restaurants.push(this.sodexoProvider.getMenu(0));
+        for (let i=0; i < this.amicaProvider.getNumRestaurants(); i++) {
+            restaurants.push(this.amicaProvider.getMenu(0));
+        }
+        for (let i=0; i < this.sodexoProvider.getNumRestaurants(); i++) {
+            restaurants.push(this.sodexoProvider.getMenu(0));
+        }
         for (let i=0; i < this.subwayProvider.getNumRestaurants(); i++) {
             restaurants.push(this.subwayProvider.getMenu(i));
         }
+        restaurants.push(this.laureaProvider.getMenu());
 
         forkJoin(restaurants).subscribe((results) => {
             results.forEach((result) => {

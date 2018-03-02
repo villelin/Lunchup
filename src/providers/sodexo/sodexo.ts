@@ -34,6 +34,10 @@ export class SodexoProvider {
         return (number < 10 ? '0' : '') + number;
     }
 
+    getNumRestaurants() {
+        return this.restaurants.length;
+    }
+
     getMenu(restaurant: number) {
         return Observable.create(observer => {
             const d = new Date();

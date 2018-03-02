@@ -6,6 +6,7 @@ import {forkJoin} from "rxjs/observable/forkJoin";
 import {SubwayProvider} from "../subway/subway";
 import {LocationProvider} from "../location/location";
 import {Storage} from "@ionic/storage";
+import {SodexoProvider} from "../sodexo/sodexo";
 
 /*
   Generated class for the PlaceProvider provider.
@@ -25,12 +26,14 @@ export class PlaceProvider {
                 public locationProvider: LocationProvider,
                 public amicaProvider: AmicaProvider,
                 public laureaProvider: LaureaProvider,
-                public subwayProvider: SubwayProvider) {
+                public subwayProvider: SubwayProvider,
+                public sodexoProvider: SodexoProvider) {
         console.log('Hello PlaceProvider Provider');
 
         let restaurants = [];
         restaurants.push(this.amicaProvider.getMenu(0));
         restaurants.push(this.laureaProvider.getMenu());
+        restaurants.push(this.sodexoProvider.getMenu(0));
         for (let i=0; i < this.subwayProvider.getNumRestaurants(); i++) {
             restaurants.push(this.subwayProvider.getMenu(i));
         }
@@ -69,14 +72,12 @@ export class PlaceProvider {
                     this.menus.forEach((item, index) => {
                         const name = item.name+item.address;
                         if (name === key) {
-                            console.log(`name = ${name}`);
                             this.menus[index].favourite = true;
                         }
                     });
                     this.nearest_menus.forEach((item, index) => {
                         const name = item.name+item.address;
                         if (name === key) {
-                            console.log(`name= ${name}`);
                             this.nearest_menus[index].favourite = true;
                         }
                     });

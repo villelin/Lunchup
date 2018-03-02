@@ -45,35 +45,39 @@ export class AmicaProvider {
 
                 const items = [];
 
+                const l = response['MenusForDays'];
+
                 // etsitään päivän ruoka
-                response['MenusForDays'].forEach((day) => {
-                    if (this.isSameDay(new Date(day['Date']), d)) {
-                        const list = day['SetMenus'];
+                if (l !== undefined) {
+                    l.forEach((day) => {
+                        if (this.isSameDay(new Date(day['Date']), d)) {
+                            const list = day['SetMenus'];
 
-                        // ruokavaihtoehdot
-                        list.forEach((item) => {
-                            const food_lines = new Array();
+                            // ruokavaihtoehdot
+                            list.forEach((item) => {
+                                const food_lines = new Array();
 
-                            // yhteen ruokaan liittyvät rivit
-                            const lines = item['Components'];
-                            lines.forEach((line) => {
-                                // allergeenit sulkujen sisältä
-                                const regExp = /\(([^)]+)\)/;
-                                const matches = regExp.exec(line);
+                                // yhteen ruokaan liittyvät rivit
+                                const lines = item['Components'];
+                                lines.forEach((line) => {
+                                    // allergeenit sulkujen sisältä
+                                    const regExp = /\(([^)]+)\)/;
+                                    const matches = regExp.exec(line);
 
-                                // poista sulkujen sisukset
-                                const food = line.replace(matches[0], '');
+                                    // poista sulkujen sisukset
+                                    const food = line.replace(matches[0], '');
 
-                                // lisätään rivi ruokaan
-                                food_lines.push({ food: food, diets: matches[1] });
+                                    // lisätään rivi ruokaan
+                                    food_lines.push({food: food, diets: matches[1]});
+                                });
+
+                                // ruoka listaan
+                                const food = new LunchItem(food_lines);
+                                items.push(food);
                             });
-
-                            // ruoka listaan
-                            const food = new LunchItem(food_lines);
-                            items.push(food);
-                        });
-                    }
-                });
+                        }
+                    });
+                }
 
                 const menu = new LunchMenu(name, address, items, coords, image);
                 observer.next(menu);

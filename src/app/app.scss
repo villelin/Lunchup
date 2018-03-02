@@ -20,7 +20,7 @@ img {
 }
 
 p{
-  font-size: 8px !important;
+  font-size: 12px !important;
 }
 
 .otsikkoRavintola {
@@ -31,6 +31,18 @@ p{
   padding: 0px;
   vertical-align: text-top !important;
 }
+
+.ruoka{
+ font-weight: bold !important;
+  color: #222 !important;
+}
+.allergeenit{
+
+}
+
+.item-inner{
+  padding-right: 0 !important;
+}
 .osoite {
   max-height: 25px !important;
   text-overflow: ellipsis !important;
@@ -38,9 +50,14 @@ p{
   white-space: nowrap !important;
   color: white !important;
 }
+ion-list{
+  padding-bottom: 8px !important;
+}
+
 ion-card-content{
-  padding-bottom: 0px !important;
-  padding-top: 5px !important;
+
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 
 }
 
@@ -76,6 +93,7 @@ ion-searchbar {
 
 button {
   padding: 0px !important;
+  margin-right: 0px !important;
 }
 
 .faveButton {
@@ -185,7 +203,7 @@ ion-card {
   }
 
   /// Define 2 column count for screen sizes up to 800 pixels in width
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 800px)  {
     .wrapper {
       -moz-column-count: 2;
       -webkit-column-count: 2;

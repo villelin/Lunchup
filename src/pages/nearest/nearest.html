@@ -27,9 +27,9 @@
                     </ion-list>
                     <ion-card-content *ngFor="let item of menu.items">
                         <ion-item class="ruokalista">
-                            <p *ngFor="let line of item.food">
-                                {{ line.food }} <br> {{ line.diets }}
-                            </p>
+                            <section *ngFor="let line of item.food">
+                                <p class="ruoka">{{ line.food }} </p> <p class="allergeenit"> {{ line.diets }}</p>
+                            </section>
                         </ion-item>
 
 

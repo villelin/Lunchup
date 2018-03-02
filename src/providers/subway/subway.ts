@@ -33,38 +33,38 @@ export class SubwayProvider {
 
     restaurants = [
         {
-            name: "Subway Sello",
-            fullname: "Leppävaarankatu 3-9",
+            name: "Subway",
+            fullname: "Sello",
             coords: { latitude: 60.2184236, longitude: 24.8121317 },
             image: 'logo.png'
         },
         {
-            name: "Subway Lönnrotinkatu",
-            fullname: "Lönnrotinkatu 35",
+            name: "Subway",
+            fullname: "Lönnrotinkatu",
             coords: { latitude: 60.1636791, longitude: 24.9293261 },
             image: 'logo.png'
         },
         {
-            name: "Subway Isoroobertinkatu",
-            fullname: "Isoroobertinkatu 23",
+            name: "Subway",
+            fullname: "Isoroobertinkatu",
             coords: { latitude: 60.162284, longitude: 24.9380575 },
             image: 'logo.png'
         },
         {
-            name: "Subway Forum",
-            fullname: "Mannerheimintie 14-20",
+            name: "Subway",
+            fullname: "Forum",
             coords: { latitude: 60.1681491, longitude: 24.9359927 },
             image: 'logo.png'
         },
         {
-            name: "Subway Citycenter",
-            fullname: "Kaivokatu 8",
+            name: "Subway",
+            fullname: "Citycenter",
             coords: { latitude: 60.1698665, longitude: 24.9413462 },
             image: 'logo.png'
         },
         {
-            name: "Subway Kaivopiha",
-            fullname: "Mannerheimintie 3-5",
+            name: "Subway",
+            fullname: "Kaivopiha",
             coords: { latitude: 60.1693185, longitude: 24.939934 },
             image: 'logo.png'
         },
@@ -81,14 +81,14 @@ export class SubwayProvider {
     getMenu(restaurant: number) {
         return Observable.create(observer => {
             const d = new Date();
-            const day = d.getDay();
+            const day = d.getDay() - 1;
 
             const name = this.restaurants[restaurant].name;
             const address = this.restaurants[restaurant].fullname;
             const coords = this.restaurants[restaurant].coords;
             const image = this.restaurants[restaurant].image;
 
-            const item = new LunchItem([{food: `Päivän subi: ${this.daily_sub[day-1].name}`, diets: ''}]);
+            const item = new LunchItem([{food: `Päivän subi: ${this.daily_sub[day].name}`, diets: ''}]);
 
             const menu = new LunchMenu(name, address, [item], coords, image);
 

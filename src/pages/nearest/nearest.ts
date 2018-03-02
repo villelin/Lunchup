@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {PlaceProvider} from "../../providers/place/place";
 import {Storage} from "@ionic/storage";
+import {LocationProvider} from "../../providers/location/location";
 
 /**
  * Generated class for the NearestPage page.
@@ -17,25 +18,18 @@ import {Storage} from "@ionic/storage";
 })
 export class NearestPage {
 
-    images: any = [];
+    latitude: number = 0;
+    longitude: number = 0;
 
     search_term: string = '';
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public placeProvider: PlaceProvider,
-                public storage: Storage) {
-        this.images = [
-            'https://www.placecage.com/g/200/1000',
-            'https://www.placecage.com/g/200/300',
-            'https://www.placecage.com/g/200/100',
-            'https://www.placecage.com/g/200/300',
-            'https://www.placecage.com/g/200/300',
-            'https://www.placecage.com/g/200/1000',
-            'https://www.placecage.com/g/200/300',
-            'https://www.placecage.com/g/200/100',
-            'https://www.placecage.com/g/200/300',
-            'https://www.placecage.com/g/200/300',
+                public storage: Storage, public locationProvider: LocationProvider) {
 
-        ];
+        this.locationProvider.getLocation().subscribe((response) => {
+            this.latitude = response['coords'].latitude;
+            this.longitude = response['coords'].longitude;
+        });
     }
 
     setSearchTerm(event){
@@ -44,8 +38,9 @@ export class NearestPage {
 
 
     search(name: string, food: any) {
-        if (this.search_term.length === 0)
+        if (this.search_term.length === 0) {
             return true;
+        }
 
         let st = this.search_term.toLowerCase();
         name = name.toLowerCase();
@@ -66,5 +61,16 @@ export class NearestPage {
         });
 
         return food_found;
+    }
+
+    isNear(coords: any) {
+        const cur_lat = this.latitude;
+        const cur_lon = this.longitude;
+        const distance= this.placeProvider.haversineDistance(cur_lat, cur_lon, coords.latitude, coords.longitude);
+        if (distance <= 1333) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

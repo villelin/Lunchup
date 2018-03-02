@@ -19,8 +19,6 @@ export class PlaceProvider {
 
     menus = new Array();
 
-    nearest_menus = new Array();
-
     constructor(public http: HttpClient,
                 public storage: Storage,
                 public locationProvider: LocationProvider,
@@ -49,44 +47,16 @@ export class PlaceProvider {
         }, (error) => {
             console.log(error);
         }, () => {
-            this.locationProvider.getLocation().subscribe((response) => {
-                const latitude = response['coords'].latitude;
-                const longitude = response['coords'].longitude;
+            // hae suosikit
+            //this.storage.get('favourites').then((value) => {
+            this.storage.forEach((value, key) => {
 
-                // etsitään lähimmät
-                this.menus.forEach((item) => {
-                    const place_lat = item.location.latitude;
-                    const place_lon = item.location.longitude;
-
-                    const distance = this.haversineDistance(latitude, longitude, place_lat, place_lon);
-
-                    // lisää jos etäisyys < 1333 metriä
-                    if (distance <= 1333) {
-                        this.nearest_menus.push(item);
+                this.menus.forEach((item, index) => {
+                    const name = item.name+item.address;
+                    if (name === key) {
+                        this.menus[index].favourite = true;
                     }
                 });
-            }, (error) => {
-                console.log(error);
-            }, () => {
-
-                // hae suosikit
-                //this.storage.get('favourites').then((value) => {
-                this.storage.forEach((value, key) => {
-
-                    this.menus.forEach((item, index) => {
-                        const name = item.name+item.address;
-                        if (name === key) {
-                            this.menus[index].favourite = true;
-                        }
-                    });
-                    this.nearest_menus.forEach((item, index) => {
-                        const name = item.name+item.address;
-                        if (name === key) {
-                            this.nearest_menus[index].favourite = true;
-                        }
-                    });
-                });
-
 
             });
         });
@@ -106,11 +76,6 @@ export class PlaceProvider {
                         this.menus[index].favourite = true;
                     }
                 });
-                this.nearest_menus.forEach((item, index) => {
-                    if (item.name === name && item.address === address) {
-                        this.nearest_menus[index].favourite = true;
-                    }
-                });
             }
         });
     }
@@ -128,11 +93,6 @@ export class PlaceProvider {
                         this.menus[index].favourite = false;
                     }
                 });
-                this.nearest_menus.forEach((item, index) => {
-                    if (item.name === name && item.address === address) {
-                        this.nearest_menus[index].favourite = false;
-                    }
-                });
             }
         })
     }
@@ -146,7 +106,7 @@ export class PlaceProvider {
         return degrees * (pi/180);
     }
 
-    haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
+    public haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
         const r = 6371e3; // maapallon halkaisija metreinä
         const φ1 = this.toRadians(lat1);
         const φ2 = this.toRadians(lat2);
@@ -160,4 +120,5 @@ export class PlaceProvider {
 
         return  r * c;
     }
+
 }

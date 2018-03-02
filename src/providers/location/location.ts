@@ -28,7 +28,7 @@ export class LocationProvider {
             });
             */
 
-            observer.next( {coords: { latitude: 60.2186027, longitude: 24.8106266}});
+            observer.next( {coords: { latitude: 60.2186027, longitude: 24.8106266 }});
             observer.complete();
         });
     }

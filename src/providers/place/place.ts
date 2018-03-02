@@ -1,11 +1,11 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {LunchMenu} from "../../models/lunchmenu";
 import {AmicaProvider} from "../amica/amica";
 import {LaureaProvider} from "../laurea/laurea";
 import {forkJoin} from "rxjs/observable/forkJoin";
 import {SubwayProvider} from "../subway/subway";
 import {LocationProvider} from "../location/location";
+import {Storage} from "@ionic/storage";
 
 /*
   Generated class for the PlaceProvider provider.
@@ -21,6 +21,7 @@ export class PlaceProvider {
     nearest_menus = new Array();
 
     constructor(public http: HttpClient,
+                public storage: Storage,
                 public locationProvider: LocationProvider,
                 public amicaProvider: AmicaProvider,
                 public laureaProvider: LaureaProvider,
@@ -57,9 +58,85 @@ export class PlaceProvider {
                         this.nearest_menus.push(item);
                     }
                 });
+            }, (error) => {
+                console.log(error);
+            }, () => {
+
+                // hae suosikit
+                //this.storage.get('favourites').then((value) => {
+                this.storage.forEach((value, key) => {
+
+                    this.menus.forEach((item, index) => {
+                        const name = item.name+item.address;
+                        if (name === key) {
+                            console.log(`name = ${name}`);
+                            this.menus[index].favourite = true;
+                        }
+                    });
+                    this.nearest_menus.forEach((item, index) => {
+                        const name = item.name+item.address;
+                        if (name === key) {
+                            console.log(`name= ${name}`);
+                            this.nearest_menus[index].favourite = true;
+                        }
+                    });
+                });
+
+
             });
         });
     }
+
+    addFavourite(name: string, address: string) {
+        const key = name+address;
+
+        this.storage.get(key).then((value) => {
+            if (value === null) {
+                // ei löytynyt
+                this.storage.set(key, 'true');
+
+                // lisää taulukoihin
+                this.menus.forEach((item, index) => {
+                    if (item.name === name && item.address === address) {
+                        this.menus[index].favourite = true;
+                    }
+                });
+                this.nearest_menus.forEach((item, index) => {
+                    if (item.name === name && item.address === address) {
+                        this.nearest_menus[index].favourite = true;
+                    }
+                });
+
+                console.log(this.menus);
+                console.log(this.nearest_menus);
+            }
+        });
+    }
+
+    removeFavourite(name: string, address: string) {
+        const key = name+address;
+
+        this.storage.get(key).then((value) => {
+            if (value !== null) {
+                this.storage.remove(key);
+
+                // poista taulukoista
+                this.menus.forEach((item, index) => {
+                    if (item.name === name && item.address === address) {
+                        this.menus[index].favourite = false;
+                    }
+                });
+                this.nearest_menus.forEach((item, index) => {
+                    if (item.name === name && item.address === address) {
+                        this.nearest_menus[index].favourite = false;
+                    }
+                });
+            }
+        })
+    }
+
+
+
 
     toRadians(degrees)
     {
@@ -81,5 +158,4 @@ export class PlaceProvider {
 
         return  r * c;
     }
-
 }

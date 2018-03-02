@@ -1,228 +1,263 @@
-
-
 <ion-content class="lol" padding>
-    <section class="logo">
-    <img class="heartbeat" src="assets/imgs/Asset 4.svg">
+    <section class="logo" (click)="presentRandomModal()">
+        <img class="heartbeat" src="assets/imgs/Asset 4.svg">
     </section>
-  <div class="wrapper">
-      <ion-card>
-          <ion-toolbar color="primary">
-            <h3 (click)="presentMenuModal()" class="kymppi" >METROPOLIA VANHA MAANTIE</h3>
+    <div class="wrapper">
 
-              <ion-buttons end class="faveButton">
-              <button  ion-button icon-right color="royal">
-                <ion-icon name="star"></ion-icon>
-              </button>
-              </ion-buttons>
-          </ion-toolbar>
+        <span *ngFor="let menu of placeProvider.menus">
+            <ion-card *ngIf="menu.favourite">
+                <ion-list>
+                    <ion-toolbar color="primary">
 
-        <ion-card-content>
-          Uunimakkaraa ja perunasosetta . G
+                        <h2 (click)="presentMenuModal()" class="kymppi">{{ menu.name }}
+                        </h2>
+                        <p class="osoite">{{ menu.address }} {{menu.favourite}}</p>
+                        <ion-buttons end class="faveButton">
+                            <button ion-button icon-right color="royal"
+                                    (click)="placeProvider.removeFavourite(menu.name,menu.address)"
+                                    *ngIf="menu.favourite">
+                                <ion-icon name="star"></ion-icon>
+                            </button>
+                            <button ion-button icon-right color="royal"
+                                    (click)="placeProvider.addFavourite(menu.name,menu.address)"
+                                    *ngIf="!menu.favourite">
+                                <ion-icon name="star"></ion-icon>
+                            </button>
+                        </ion-buttons>
+                    </ion-toolbar>
+                </ion-list>
+                <ion-card-content *ngFor="let item of menu.items">
+                    <ion-item class="ruokalista">
+                        <p *ngFor="let line of item.food">
+                            {{ line.food }} <br> {{ line.diets }}
+                        </p>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        </span>
 
-          Tonnikalakastiketta ja täysjyväpastaa G M
 
-          Linssi-tomaattipastaa M
+        <!--
+        <ion-card>
+            <ion-toolbar color="primary">
+              <h3 (click)="presentMenuModal()" class="kymppi" >METROPOLIA VANHA MAANTIE</h3>
 
-          Chicken Burger ja lohkoperunat M
-
-          Lounaspatonki feta-kasvistäytteellä
-
-          Punajuurisosekeittoa G M
-
-          Vatkattua raparperi-mansikkapuuroa
-
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-
-          <ion-toolbar color="primary">
-              <h2 class="kymppi" >SODEXO</h2>
-              <p class="kymppi" >Vanha maantie 6</p>
-              <ion-buttons end>
-                  <button  ion-button icon-right color="royal">
-                      <ion-icon name="star"></ion-icon>
-                  </button>
-              </ion-buttons>
-          </ion-toolbar>
-
-          <ion-card-content>
-              Uunimakkaraa ja perunasosetta . G
-
-              Tonnikalakastiketta ja täysjyväpastaa G M
-
-              Linssi-tomaattipastaa M
-
-              Chicken Burger ja lohkoperunat M
-
-              Lounaspatonki feta-kasvistäytteellä
-
-              Punajuurisosekeittoa G M
-
-              Vatkattua raparperi-mansikkapuuroa
-
-          </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-
-          <ion-toolbar color="primary">
-              <h2 class="kymppi" >SODEXO</h2>
-              <p class="kymppi" >Vanha maantie 6</p>
-              <ion-buttons end>
-                  <button ion-button icon-right color="royal">
-                      <ion-icon name="radio-button-on"></ion-icon>
-                  </button>
-              </ion-buttons>
-          </ion-toolbar>
+                <ion-buttons end class="faveButton">
+                <button  ion-button icon-right color="royal">
+                  <ion-icon name="star"></ion-icon>
+                </button>
+                </ion-buttons>
+            </ion-toolbar>
 
           <ion-card-content>
-              Uunimakkaraa ja perunasosetta . G
+            Uunimakkaraa ja perunasosetta . G
 
-              Tonnikalakastiketta ja täysjyväpastaa G M
+            Tonnikalakastiketta ja täysjyväpastaa G M
 
-              Linssi-tomaattipastaa M
+            Linssi-tomaattipastaa M
 
+            Chicken Burger ja lohkoperunat M
 
-              Punajuurisosekeittoa G M
+            Lounaspatonki feta-kasvistäytteellä
 
-              Vatkattua raparperi-mansikkapuuroa
+            Punajuurisosekeittoa G M
 
-          </ion-card-content>
-      </ion-card>
-      <ion-card>
-
-          <ion-toolbar color="primary">
-              <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
-              <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
-              <ion-buttons end>
-                  <button ion-button icon-right color="royal">
-                      <ion-icon name="star"></ion-icon>
-                  </button>
-              </ion-buttons>
-          </ion-toolbar>
-
-          <ion-card-content>
-              Uunimakkaraa ja perunasosetta . G
-
-              Tonnikalakastiketta ja täysjyväpastaa G M
-
-
-
-
-              Lounaspatonki feta-kasvistäytteellä
-
-
-              Vatkattua raparperi-mansikkapuuroa
+            Vatkattua raparperi-mansikkapuuroa
 
           </ion-card-content>
-      </ion-card>
-      <ion-card>
+        </ion-card>
 
-          <ion-toolbar color="primary">
-              <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
-              <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
-              <ion-buttons end>
-                  <button ion-button icon-right color="royal">
-                      <ion-icon name="star"></ion-icon>
-                  </button>
-              </ion-buttons>
-          </ion-toolbar>
+        <ion-card>
 
-          <ion-card-content>
-              Uunimakkaraa ja perunasosetta . G
+            <ion-toolbar color="primary">
+                <h2 class="kymppi" >SODEXO</h2>
+                <p class="kymppi" >Vanha maantie 6</p>
+                <ion-buttons end>
+                    <button  ion-button icon-right color="royal">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
 
-          M
+            <ion-card-content>
+                Uunimakkaraa ja perunasosetta . G
 
-              Vatkattua raparperi-mansikkapuuroa
+                Tonnikalakastiketta ja täysjyväpastaa G M
 
-          </ion-card-content>
-      </ion-card>
-      <ion-card>
+                Linssi-tomaattipastaa M
 
-          <ion-toolbar color="primary">
-              <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
-              <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
-              <ion-buttons end>
-                  <button ion-button icon-right color="royal">
-                      <ion-icon name="star"></ion-icon>
-                  </button>
-              </ion-buttons>
-          </ion-toolbar>
+                Chicken Burger ja lohkoperunat M
 
-          <ion-card-content>
-              Uunimakkaraa ja perunasosetta . G
+                Lounaspatonki feta-kasvistäytteellä
 
-              Tonnikalakastiketta ja täysjyväpastaa G M
+                Punajuurisosekeittoa G M
 
+                Vatkattua raparperi-mansikkapuuroa
 
-              Vatkattua raparperi-mansikkapuuroa
+            </ion-card-content>
+        </ion-card>
 
-          </ion-card-content>
-      </ion-card>
+        <ion-card>
 
-      <ion-card>
+            <ion-toolbar color="primary">
+                <h2 class="kymppi" >SODEXO</h2>
+                <p class="kymppi" >Vanha maantie 6</p>
+                <ion-buttons end>
+                    <button ion-button icon-right color="royal">
+                        <ion-icon name="radio-button-on"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
 
-          <ion-toolbar color="primary">
-              <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
-              <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
-              <ion-buttons end>
-                  <button ion-button icon-right color="royal">
-                      <ion-icon name="star"></ion-icon>
-                  </button>
-              </ion-buttons>
-          </ion-toolbar>
+            <ion-card-content>
+                Uunimakkaraa ja perunasosetta . G
 
-          <ion-card-content>
+                Tonnikalakastiketta ja täysjyväpastaa G M
+
+                Linssi-tomaattipastaa M
 
 
-              Vatkattua raparperi-mansikkapuuroa
+                Punajuurisosekeittoa G M
 
-          </ion-card-content>
-      </ion-card>
+                Vatkattua raparperi-mansikkapuuroa
 
-      <ion-card>
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
 
-          <ion-toolbar color="primary">
-              <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
-              <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
-              <ion-buttons end>
-                  <button ion-button icon-right color="royal">
-                      <ion-icon name="star"></ion-icon>
-                  </button>
-              </ion-buttons>
-          </ion-toolbar>
+            <ion-toolbar color="primary">
+                <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
+                <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
+                <ion-buttons end>
+                    <button ion-button icon-right color="royal">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
 
-          <ion-card-content>
-              Uunimakkaraa ja perunasosetta . G
+            <ion-card-content>
+                Uunimakkaraa ja perunasosetta . G
 
-
-          </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-
-          <ion-toolbar color="primary">
-              <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
-              <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
-              <ion-buttons end>
-                  <button ion-button icon-right color="royal">
-                      <ion-icon name="star"></ion-icon>
-                  </button>
-              </ion-buttons>
-          </ion-toolbar>
-
-          <ion-card-content>
-              Uunimakkaraa ja perunasosetta . G
-
-              Tonnikalakastiketta ja täysjyväpastaa G M
+                Tonnikalakastiketta ja täysjyväpastaa G M
 
 
 
 
-          </ion-card-content>
-      </ion-card>
-  </div>
+                Lounaspatonki feta-kasvistäytteellä
 
+
+                Vatkattua raparperi-mansikkapuuroa
+
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+
+            <ion-toolbar color="primary">
+                <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
+                <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
+                <ion-buttons end>
+                    <button ion-button icon-right color="royal">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
+
+            <ion-card-content>
+                Uunimakkaraa ja perunasosetta . G
+
+            M
+
+                Vatkattua raparperi-mansikkapuuroa
+
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+
+            <ion-toolbar color="primary">
+                <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
+                <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
+                <ion-buttons end>
+                    <button ion-button icon-right color="royal">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
+
+            <ion-card-content>
+                Uunimakkaraa ja perunasosetta . G
+
+                Tonnikalakastiketta ja täysjyväpastaa G M
+
+
+                Vatkattua raparperi-mansikkapuuroa
+
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+
+            <ion-toolbar color="primary">
+                <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
+                <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
+                <ion-buttons end>
+                    <button ion-button icon-right color="royal">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
+
+            <ion-card-content>
+
+
+                Vatkattua raparperi-mansikkapuuroa
+
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+
+            <ion-toolbar color="primary">
+                <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
+                <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
+                <ion-buttons end>
+                    <button ion-button icon-right color="royal">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
+
+            <ion-card-content>
+                Uunimakkaraa ja perunasosetta . G
+
+
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+
+            <ion-toolbar color="primary">
+                <h1 class="kymppi" id="otsikkoR">SODEXO</h1>
+                <p class="kymppi" id="osoiteR">Vanha maantie 6</p>
+                <ion-buttons end>
+                    <button ion-button icon-right color="royal">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
+
+            <ion-card-content>
+                Uunimakkaraa ja perunasosetta . G
+
+                Tonnikalakastiketta ja täysjyväpastaa G M
+
+
+
+
+            </ion-card-content>
+        </ion-card>
+
+        -->
+
+    </div>
 
 </ion-content>

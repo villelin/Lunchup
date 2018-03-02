@@ -18,18 +18,18 @@ export class LocationProvider {
     getLocation() {
         return Observable.create(observer => {
 
+            // TILAPÄISRATKAISU
+
+            /*
             this.geoLocation.getCurrentPosition({timeout: 30000}).then((position) => {
                 console.log(position);
                 observer.next(position);
                 observer.complete();
             });
-
-            /*
-            navigator.geolocation.getCurrentPosition((position) => {
-                observer.next(position);
-                observer.complete();
-            });
             */
+
+            observer.next( {coords: { latitude: 60.2186027, longitude: 24.8106266}});
+            observer.complete();
         });
     }
 }

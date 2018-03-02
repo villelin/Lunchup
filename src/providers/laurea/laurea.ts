@@ -17,7 +17,8 @@ export class LaureaProvider {
     restaurant = {
         name: 'BarLaurea',
         fullname: 'Vanha Maantie 9',
-        coords: { latitude: 60.2227004, longitude: 24.8048904 }
+        coords: { latitude: 60.2227004, longitude: 24.8048904 },
+        image: 'logo.png'
     };
 
     constructor(public http: HttpClient) {
@@ -46,7 +47,7 @@ export class LaureaProvider {
                     items.push(food);
                 });
 
-                const menu = new LunchMenu(this.restaurant.name, this.restaurant.fullname, items, this.restaurant.coords);
+                const menu = new LunchMenu(this.restaurant.name, this.restaurant.fullname, items, this.restaurant.coords, this.restaurant.image);
 
                 observer.next(menu);
                 observer.complete();

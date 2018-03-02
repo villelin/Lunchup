@@ -19,7 +19,8 @@ export class AmicaProvider {
         {   name: 'Jamipaja',
             fullname: 'Pop&Jazz Konservatorio Jamipaja',
             id: 3007,
-            coords: { latitude: 60.2070978, longitude: 24.9751877 }
+            coords: { latitude: 60.2070978, longitude: 24.9751877 },
+            image: 'logo.png'
         }
     ];
 
@@ -36,6 +37,7 @@ export class AmicaProvider {
                 const name = this.restaurants[restaurant].name;
                 const address = this.restaurants[restaurant].fullname;
                 const coords = this.restaurants[restaurant].coords;
+                const image = this.restaurants[restaurant].image;
 
                 // etsitään päivän ruoka
                 response['MenusForDays'].forEach((day) => {
@@ -67,7 +69,7 @@ export class AmicaProvider {
                             items.push(food);
                         });
 
-                        const menu = new LunchMenu(name, address, items, coords);
+                        const menu = new LunchMenu(name, address, items, coords, image);
 
                         observer.next(menu);
                     }

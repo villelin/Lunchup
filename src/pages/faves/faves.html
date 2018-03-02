@@ -9,9 +9,12 @@
                 <ion-list>
                     <ion-toolbar color="primary">
 
-                        <h2 (click)="presentMenuModal()" class="kymppi">{{ menu.name }}
+                        <h2 (click)="presentMenuModal()" class="kymppi">
+                            {{ menu.name }}
                         </h2>
-                        <p class="osoite">{{ menu.address }} {{menu.favourite}}</p>
+                        <p class="osoite">
+                            {{ menu.address }} {{menu.favourite}}
+                        </p>
                         <ion-buttons end class="faveButton">
                             <button ion-button icon-right color="royal"
                                     (click)="placeProvider.removeFavourite(menu.name,menu.address)"

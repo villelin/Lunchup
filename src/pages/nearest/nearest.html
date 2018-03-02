@@ -17,7 +17,7 @@
 
                     <h2 (click)="presentMenuModal()" class="kymppi">{{ menu.name }}
                     </h2>
-                    <p class="osoite">{{ menu.address }} {{menu.favourite}}</p>
+                    <p class="osoite">{{ menu.address }}</p>
                     <ion-buttons end class="faveButton">
                         <button ion-button icon-right color="royal"
                                 (click)="placeProvider.removeFavourite(menu.name,menu.address)" *ngIf="menu.favourite">
@@ -25,7 +25,7 @@
                         </button>
                         <button ion-button icon-right color="royal"
                                 (click)="placeProvider.addFavourite(menu.name,menu.address)" *ngIf="!menu.favourite">
-                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star-outline"></ion-icon>
                         </button>
                     </ion-buttons>
                 </ion-toolbar>

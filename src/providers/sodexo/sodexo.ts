@@ -41,6 +41,7 @@ export class SodexoProvider {
     getMenu(restaurant: number) {
         return Observable.create(observer => {
             const d = new Date();
+            const weekday = d.getDay();
 
             const id = this.restaurants[restaurant].id;
             const year = d.getFullYear();
@@ -62,7 +63,12 @@ export class SodexoProvider {
                     items.push(food);
                 });
 
-                const menu = new LunchMenu(name, address, items, coords, image);
+                let weekend = false;
+                if (weekday === 0 || weekday === 6) {
+                    weekend = true;
+                }
+
+                const menu = new LunchMenu(name, address, items, coords, image, weekend);
 
                 observer.next(menu);
                 observer.complete();

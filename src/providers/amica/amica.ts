@@ -37,6 +37,7 @@ export class AmicaProvider {
             const id = this.restaurants[restaurant].id;
             this.http.get(`${this.apiUrl}/Index?costNumber=${id}&language=fi`).subscribe((response) => {
                 const d = new Date();
+                const weekday = d.getDay();
 
                 const name = this.restaurants[restaurant].name;
                 const address = this.restaurants[restaurant].fullname;
@@ -79,7 +80,12 @@ export class AmicaProvider {
                     });
                 }
 
-                const menu = new LunchMenu(name, address, items, coords, image);
+                let weekend = false;
+                if (weekday === 0 || weekday === 6) {
+                    weekend = true;
+                }
+
+                const menu = new LunchMenu(name, address, items, coords, image, weekend);
                 observer.next(menu);
 
                 observer.complete();

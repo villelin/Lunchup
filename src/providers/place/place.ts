@@ -110,8 +110,7 @@ export class PlaceProvider {
 
     toRadians(degrees)
     {
-        var pi = Math.PI;
-        return degrees * (pi/180);
+        return degrees * (Math.PI/180);
     }
 
     public haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number) {

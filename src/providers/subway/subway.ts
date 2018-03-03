@@ -89,8 +89,9 @@ export class SubwayProvider {
             const image = this.restaurants[restaurant].image;
 
             const item = new LunchItem([{food: `Päivän subi: ${this.daily_sub[day].name}`, diets: ''}]);
+            const weekend = false;
 
-            const menu = new LunchMenu(name, address, [item], coords, image);
+            const menu = new LunchMenu(name, address, [item], coords, image, weekend);
 
             observer.next(menu);
             observer.complete();

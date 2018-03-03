@@ -6,6 +6,7 @@ export class LunchMenu {
                 public items: LunchItem[],
                 public location: any,
                 public image: string,
+                public weekend: boolean,
                 public favourite: boolean = false) {
     }
 }

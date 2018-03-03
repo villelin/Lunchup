@@ -43,7 +43,8 @@ export class RandomModalPage {
                 const lat = menu.location.latitude;
                 const lon = menu.location.longitude;
 
-                if (this.placeProvider.isNear({latitude: lat, longitude: lon})) {
+                if (this.placeProvider.isNear({latitude: lat, longitude: lon}) &&
+                    menu.items.length > 0) {
                     list.push(menu);
                 }
             });

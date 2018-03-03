@@ -38,10 +38,10 @@ export class PlaceProvider {
 
         let restaurants = [];
         for (let i=0; i < this.amicaProvider.getNumRestaurants(); i++) {
-            restaurants.push(this.amicaProvider.getMenu(0));
+            restaurants.push(this.amicaProvider.getMenu(i));
         }
         for (let i=0; i < this.sodexoProvider.getNumRestaurants(); i++) {
-            restaurants.push(this.sodexoProvider.getMenu(0));
+            restaurants.push(this.sodexoProvider.getMenu(i));
         }
         for (let i=0; i < this.subwayProvider.getNumRestaurants(); i++) {
             restaurants.push(this.subwayProvider.getMenu(i));

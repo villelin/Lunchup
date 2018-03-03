@@ -23,6 +23,54 @@ export class SodexoProvider {
             id: 16435,
             coords: {latitude: 60.2208876, longitude: 24.8049805},
             image: 'logo.png'
+        }, {
+            name: 'Sodexo',
+            fullname: 'Agricola',
+            id: 16361,
+            coords: {latitude: 60.184443, longitude: 24.956361},
+            image: 'logo.png'
+        }, {
+            name: 'Sodexo',
+            fullname: 'Albert',
+            id: 16362,
+            coords: {latitude: 60.1653991, longitude: 24.9312884},
+            image: 'logo.png'
+        }, {
+            name: 'Sodexo',
+            fullname: 'Bulevardi',
+            id: 16363,
+            coords: {latitude: 60.1630785, longitude: 24.9313413},
+            image: 'logo.png'
+        }, {
+            name: 'Sodexo',
+            fullname: 'Hämeentie',
+            id: 16364,
+            coords: {latitude: 60.2146143, longitude: 24.9808086},
+            image: 'logo.png'
+        }, {
+            name: 'Sodexo',
+            fullname: 'Leiritie',
+            id: 16365,
+            coords: {latitude: 60.2585858, longitude: 24.8455811},
+            image: 'logo.png'
+        }, {
+            name: 'Sodexo',
+            fullname: 'Onnentie',
+            id: 16432,
+            coords: {latitude: 60.2197989, longitude: 24.9567841},
+            image: 'logo.png'
+        }, {
+            name: 'Sodexo',
+            fullname: 'Sofianlehto',
+            id: 16433,
+            coords: {latitude: 60.2042063, longitude: 24.9506807},
+            image: 'logo.png'
+        }, {
+            name: 'Sodexo',
+            fullname: 'Tukholmankatu',
+            id: 16434,
+            coords: {latitude: 60.1912458, longitude: 24.9020872},
+            image: 'logo.png'
         }
     ];
 

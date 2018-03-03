@@ -13,7 +13,7 @@
                             {{ menu.name }}
                         </h2>
                         <p class="osoite">
-                            {{ menu.address }} {{menu.favourite}}
+                            {{ menu.address }}
                         </p>
                         <ion-buttons end class="faveButton">
                             <button ion-button icon-right color="royal"
@@ -39,6 +39,11 @@
                 <ion-card-content *ngIf="menu.weekend">
                     <p>
                         Ei ruokaa tarjolla viikonloppuna.
+                    </p>
+                </ion-card-content>
+                <ion-card-content *ngIf="(!menu.weekend && menu.items.length === 0)">
+                    <p>
+                        Ruokalistaa ei saatavilla.
                     </p>
                 </ion-card-content>
             </ion-card>

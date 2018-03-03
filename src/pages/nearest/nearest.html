@@ -44,6 +44,11 @@
                             Ei ruokaa tarjolla viikonloppuna.
                         </p>
                     </ion-card-content>
+                    <ion-card-content *ngIf="(!menu.weekend && menu.items.length === 0)">
+                        <p>
+                            Ruokalistaa ei saatavilla.
+                        </p>
+                    </ion-card-content>
             </ion-card>
         </span>
     </div>

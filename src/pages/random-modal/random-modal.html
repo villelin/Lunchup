@@ -22,7 +22,7 @@
 
 <ion-content no-padding>
     <div class="wrapper">
-        <ion-card class="randomCard" >
+        <ion-card class="randomCard" *ngIf="done">
             <ion-list>
                 <ion-toolbar color="primary">
                     <h2 class="kymppi">{{ restaurant }}</h2>

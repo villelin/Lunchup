@@ -41,8 +41,8 @@ export class FavesPage {
     console.log('ionViewDidLoad FavesPage');
   }
 
-    presentMenuModal() {
-        let MenuModal = this.modalCtrl.create(MenuModalPage, { userId: 8675309 });
+    presentMenuModal(item: object) {
+        let MenuModal = this.modalCtrl.create(MenuModalPage, item);
         MenuModal.present();
     }
 

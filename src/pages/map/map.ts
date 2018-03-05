@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {LocationProvider} from "../../providers/location/location";
 import {PlaceProvider} from "../../providers/place/place";
+import {MenuModalPage} from "../menu-modal/menu-modal";
 
 /**
  * Generated class for the MapPage page.
@@ -21,7 +22,7 @@ export class MapPage {
     longitude: number = 0;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private locationProvider: LocationProvider,
-                public placeProvider: PlaceProvider) {
+                public placeProvider: PlaceProvider, public modalCtrl: ModalController) {
     }
 
     ionViewDidLoad() {
@@ -35,6 +36,11 @@ export class MapPage {
         }, (error) => {
             console.log(error);
         });
+    }
+
+    markerClick(item: object) {
+        let MenuModal = this.modalCtrl.create(MenuModalPage, item);
+        MenuModal.present();
     }
 
 }

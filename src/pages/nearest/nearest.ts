@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {PlaceProvider} from "../../providers/place/place";
 import {Storage} from "@ionic/storage";
+import {MenuModalPage} from "../menu-modal/menu-modal";
 
 /**
  * Generated class for the NearestPage page.
@@ -20,7 +21,7 @@ export class NearestPage {
     search_term: string = '';
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public placeProvider: PlaceProvider,
-                public storage: Storage) {
+                public storage: Storage, public modalCtrl: ModalController) {
     }
 
     setSearchTerm(event){
@@ -52,5 +53,10 @@ export class NearestPage {
         });
 
         return food_found;
+    }
+
+    presentMenuModal(item: object) {
+        let MenuModal = this.modalCtrl.create(MenuModalPage, item);
+        MenuModal.present();
     }
 }

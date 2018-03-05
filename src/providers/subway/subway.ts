@@ -68,6 +68,73 @@ export class SubwayProvider {
             coords: { latitude: 60.1693185, longitude: 24.939934 },
             image: 'logo.png'
         },
+        {
+            name: "Subway",
+            fullname: "Jätkäsaari",
+            coords: { latitude: 60.1563113, longitude: 24.9212361 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Ruoholahti",
+            coords: { latitude: 60.163655, longitude: 24.9113461 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Kluuvi",
+            coords: { latitude: 60.163655, longitude: 24.9113461 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Kaisaniemi",
+            coords: { latitude: 60.1715774, longitude: 24.9472348 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Mannerheimintie",
+            coords: { latitude: 60.1808961, longitude: 24.9274749 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Porthaninkatu",
+            coords: { latitude: 60.1823502, longitude: 24.9521318 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Sörnäisten rantatie",
+            coords: { latitude: 60.1831564, longitude: 24.9629599 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Teollisuuskatu",
+            coords: { latitude: 60.19429, longitude: 24.9477558 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Mäkelänkatu",
+            coords: { latitude: 60.1950419, longitude: 24.9565078 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Pasilan asema",
+            coords: { latitude: 60.1987986, longitude: 24.9339645 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Tullinpuomi",
+            coords: { latitude: 60.1921348, longitude: 24.9097241 },
+            image: 'logo.png'
+        },
+
     ];
 
     constructor(public http: HttpClient) {

@@ -6,14 +6,31 @@
 -->
 <ion-header>
 
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+        <ion-navbar >
+            <ion-toolbar>
+                <img float-left  class="logoYla" src="assets/imgs/Asset 4.svg">
+                <ion-title  float-left>Lähimmät</ion-title>
+                <ion-searchbar id="haku" (ionInput)="getItems($event)"></ion-searchbar>
+                <ion-buttons (click)="hakuAvaus" end>
+                    <button ion-button icon-only color="primary" (click)="dismiss()">
+                        <ion-icon name="search"></ion-icon>
+                    </button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-navbar>
+
+
+
+
+
 </ion-header>
 <ion-content no-padding>
     <div class="wrapper">
 
-                <ion-card *ngFor="let menu of placeProvider.nearest_menus">
-                    <ion-list>
-                        <ion-toolbar  color="primary">
+        <ion-card *ngFor="let menu of placeProvider.nearest_menus">
+            <ion-list>
+                <ion-toolbar color="primary">
 
                     <h2 (click)="presentMenuModal()" class="kymppi">{{ menu.name }}
                     </h2>
@@ -30,31 +47,32 @@
                     </ion-buttons>
                 </ion-toolbar>
             </ion-list>
-                    <ion-card-content *ngFor="let item of menu.items">
-                        <ion-item class="ruokalista">
-                            <section *ngFor="let line of item.food">
-                                <p class="ruoka">{{ line.food }} </p> <p class="allergeenit"> {{ line.diets }}</p>
-                            </section>
-                        </ion-item>
+            <ion-card-content *ngFor="let item of menu.items">
+                <ion-item class="ruokalista">
+                    <section *ngFor="let line of item.food">
+                        <p class="ruoka">{{ line.food }} </p>
+                        <p class="allergeenit"> {{ line.diets }}</p>
+                    </section>
+                </ion-item>
 
 
-                        <!--
-                        Uunimakkaraa ja perunasosetta . G
+                <!--
+                Uunimakkaraa ja perunasosetta . G
 
-                        Tonnikalakastiketta ja täysjyväpastaa G M
+                Tonnikalakastiketta ja täysjyväpastaa G M
 
-                        Linssi-tomaattipastaa M
+                Linssi-tomaattipastaa M
 
-                        Chicken Burger ja lohkoperunat M
+                Chicken Burger ja lohkoperunat M
 
-                        Lounaspatonki feta-kasvistäytteellä
+                Lounaspatonki feta-kasvistäytteellä
 
-                        Punajuurisosekeittoa G M
+                Punajuurisosekeittoa G M
 
-                        Vatkattua raparperi-mansikkapuuroa
-                        -->
-                    </ion-card-content>
-                </ion-card>
+                Vatkattua raparperi-mansikkapuuroa
+                -->
+            </ion-card-content>
+        </ion-card>
 
     </div>
 </ion-content>

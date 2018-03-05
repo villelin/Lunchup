@@ -29,7 +29,10 @@ $app-direction: ltr;
 
 $colors: (
         primary: #DD6570,
-        secondary: #32db64,
+        secondary: (
+                base:#ffffff,
+                contrast: #DD6570),
+        harmaa: #f8f8f8,
         danger: #f53d3d,
         light: #f4f4f4,
         dark: #222,
@@ -48,6 +51,10 @@ $colors: (
         musta:#000000
 )
 ;
+
+
+$tabs-background: color($colors, secondary);
+$toolbar-background:  color($colors, secondary);
 
 .toolbar-background {
   background-color: lightgreen;

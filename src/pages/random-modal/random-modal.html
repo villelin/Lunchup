@@ -4,30 +4,50 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+
 <ion-header>
-
-    <ion-navbar>
-        <ion-title>Satunnainen ruoka</ion-title>
+    <ion-navbar >
+        <ion-toolbar>
+        <img float-left  class="logoYla" src="assets/imgs/Asset 4.svg">
+        <ion-title  float-left>Satunnainen ruoka</ion-title>
+        <ion-buttons class="modalClose" end>
+            <button ion-button icon-only color="primary" (click)="dismiss()">
+                <ion-icon name="md-close"></ion-icon>
+            </button>
+        </ion-buttons>
+        </ion-toolbar>
     </ion-navbar>
-
 </ion-header>
 
+<ion-content no-padding>
+    <div class="wrapper">
+        <ion-card class="randomCard" >
+            <ion-list>
+                <ion-toolbar color="primary">
+                    <h2 class="kymppi">{{ restaurant }}</h2>
+                    <p class="osoite">{{ restaurant_address }}</p>
 
-<ion-content padding>
-    <h1>
-        {{ restaurant }}
-    </h1>
-    <h6>
-        {{ restaurant_address }}
-    </h6>
-    <ion-list>
-    <ion-item *ngFor="let line of food">
-        {{ line.food }}
-    </ion-item>
-    </ion-list>
+                </ion-toolbar>
+            </ion-list>
+            <ion-card-content >
+                <ion-item class="ruokalista">
+                    <section *ngFor="let line of food">
+                        <p class="ruoka">{{ line.food }} </p>
+                        <p class="allergeenit"> {{ line.diets }}</p>
+                    </section>
+                </ion-item>
+            </ion-card-content>
+            <!--<ion-buttons *ngIf="done">-->
+                <!--<button ion-button full color="primary" (click)="dismiss()">SULJE</button>-->
+            <!--</ion-buttons>-->
+        </ion-card>
+
+    </div>
 
 
-    <ion-buttons *ngIf="done">
-        <button ion-button full color="danger" (click)="dismiss()">SULJE</button>
-    </ion-buttons>
+
+
+
+
 </ion-content>

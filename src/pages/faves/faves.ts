@@ -51,4 +51,6 @@ export class FavesPage {
       randomModal.present();
     }
 
+
+
 }

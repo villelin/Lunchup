@@ -14,35 +14,61 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+ion-header {
+
+
+  ion-navbar{
+
+  }
+  .toolbar-content {
+    display: flex !important;
+    align-content: center !important;
+    align-items: center !important;
+  }
+  ion-toolbar {
+    background: color($colors, secondary) !important;
+  padding-left: 14px !important;
+    padding-right: 14px !important;
+    img {
+      max-width: 40px;
+
+    }
+  }
+}
+
+
 img {
   max-width: 85px;
 
 }
 
-p{
+p {
   font-size: 12px !important;
+
 }
 
 .otsikkoRavintola {
   background: #DD6570 !important;
 }
 
-.ruokalista{
+.ruokalista {
   padding: 0px;
   vertical-align: text-top !important;
 }
 
-.ruoka{
- font-weight: bold !important;
+.ruoka {
+  font-weight: bold !important;
   color: #222 !important;
 }
-.allergeenit{
+
+.allergeenit {
 
 }
 
-.item-inner{
+.item-inner {
   padding-right: 0 !important;
 }
+
 .osoite {
   max-height: 25px !important;
   text-overflow: ellipsis !important;
@@ -50,40 +76,41 @@ p{
   white-space: nowrap !important;
   color: white !important;
 }
-ion-list{
+
+ion-list {
   padding-bottom: 8px !important;
 }
 
-ion-card-content{
+ion-card-content {
 
   padding-top: 8px !important;
   padding-bottom: 8px !important;
 
 }
 
-ion-label{
+ion-label {
   margin: 0 !important;
   white-space: normal;
 }
 
-ion-badge{
+ion-badge {
   font-size: 8px;
   white-space: normal;
 }
+
 ion-searchbar {
-  background-color: white !important;
-  border-bottom: 0.55px solid rgba(0, 0, 0, 0.3) !important;
+
+
+
 }
 
-.searchbar-input {
-  border: solid 1px #DD6570 !important;
-}
 
 .logo {
   text-align: center;
-  padding-bottom: 16px;
+
   //background-color: #DD6570;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .lol {
@@ -148,6 +175,7 @@ ion-card {
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-bottom: 0px !important;
+  background: color($colors,harmaa);
 
 }
 
@@ -156,14 +184,14 @@ ion-card {
   width: calc(100% - 0px);
 }
 
-@supports (column-count: 5) {
+@supports (column-count: 2) {
   .wrapper {
-    -moz-column-count: 5;
-    -webkit-column-count: 5;
-    column-count: 5;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
     -moz-column-gap: 0.5em;
     -webkit-column-gap: 0.5em;
-    column-gap: 5px;
+    column-gap: 2px;
 
     ion-card {
       width: 100%;
@@ -171,7 +199,7 @@ ion-card {
       padding: 0em;
       display: inline-block;
       color: rgba(68, 68, 68, 1);
-      text-align: center;
+
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
@@ -203,7 +231,7 @@ ion-card {
   }
 
   /// Define 2 column count for screen sizes up to 800 pixels in width
-  @media only screen and (max-width: 800px)  {
+  @media only screen and (max-width: 800px) {
     .wrapper {
       -moz-column-count: 2;
       -webkit-column-count: 2;
@@ -216,7 +244,7 @@ ion-card {
     .wrapper {
       -moz-column-count: 2;
       -webkit-column-count: 2;
-      column-count: 2;
+
       -moz-column-gap: 1px;
       -webkit-column-gap: 1px;
       column-gap: 5px;

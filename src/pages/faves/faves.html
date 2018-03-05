@@ -1,7 +1,17 @@
-<ion-content class="lol" padding>
-    <section class="logo" (click)="presentRandomModal()">
-        <img class="heartbeat" src="assets/imgs/Asset 4.svg">
-    </section>
+<ion-header >
+    <ion-navbar >
+        <ion-toolbar color="secondary">
+        <img class="heartbeat"  (click)="presentRandomModal()" float-left  id="logoYla" src="assets/imgs/Asset 4.svg">
+        <ion-title class="ylaOtsikko" float-left>Suosikit</ion-title>
+
+        </ion-toolbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="lol" no-padding>
+    <!--<section class="logo" (click)="presentRandomModal()">
+        <img class="heartbeat" src="assets/imgs/plain.svg">
+    </section>-->
     <div class="wrapper">
 
         <span *ngFor="let menu of placeProvider.menus">
@@ -28,12 +38,13 @@
                 </ion-list>
                 <ion-card-content *ngFor="let item of menu.items">
                     <ion-item class="ruokalista">
-                        <p *ngFor="let line of item.food">
-                            {{ line.food }} <br> {{ line.diets }}
-                        </p>
+                        <section *ngFor="let line of item.food">
+                            <p class="ruoka">{{ line.food }} </p>  <p class="allergeenit">{{ line.diets }}</p>
+                        </section>
                     </ion-item>
                 </ion-card-content>
             </ion-card>
+
         </span>
 
 

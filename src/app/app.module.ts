@@ -11,6 +11,7 @@ import {FavesPage} from "../pages/faves/faves";
 import {NearestPage} from "../pages/nearest/nearest";
 import {MapPage} from "../pages/map/map";
 import {AgmCoreModule} from "@agm/core";
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { LocationProvider } from '../providers/location/location';
 import {HttpClientModule} from "@angular/common/http";
 import { AmicaProvider } from '../providers/amica/amica';
@@ -22,6 +23,7 @@ import { SubwayProvider } from '../providers/subway/subway';
 import {MenuModalPage} from "../pages/menu-modal/menu-modal";
 import {RandomModalPage} from "../pages/random-modal/random-modal";
 import {IonicStorageModule} from "@ionic/storage";
+import { UnicafeProvider } from '../providers/unicafe/unicafe';
 
 @NgModule({
     declarations: [
@@ -37,6 +39,7 @@ import {IonicStorageModule} from "@ionic/storage";
         BrowserModule,
         IonicModule.forRoot(MyApp),
         AgmCoreModule.forRoot({apiKey: 'AIzaSyBQpwzaKXT7X_0aWMQnqU3uIZXbRIiNPgk'}),
+        AgmSnazzyInfoWindowModule,
         HttpClientModule,
         IonicStorageModule.forRoot()
     ],
@@ -61,7 +64,8 @@ import {IonicStorageModule} from "@ionic/storage";
     WikipediaProvider,
     PlaceProvider,
     LaureaProvider,
-    SubwayProvider
+    SubwayProvider,
+    UnicafeProvider
     ]
 })
 export class AppModule {

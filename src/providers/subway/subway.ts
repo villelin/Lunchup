@@ -33,35 +33,108 @@ export class SubwayProvider {
 
     restaurants = [
         {
-            name: "Subway Sello",
-            fullname: "Leppävaarankatu 3-9",
-            coords: { latitude: 60.2184236, longitude: 24.8121317 }
+            name: "Subway",
+            fullname: "Sello",
+            coords: { latitude: 60.2184236, longitude: 24.8121317 },
+            image: 'logo.png'
         },
         {
-            name: "Subway Lönnrotinkatu",
-            fullname: "Lönnrotinkatu 35",
-            coords: { latitude: 60.1636791, longitude: 24.9293261 }
+            name: "Subway",
+            fullname: "Lönnrotinkatu",
+            coords: { latitude: 60.1636791, longitude: 24.9293261 },
+            image: 'logo.png'
         },
         {
-            name: "Subway Isoroobertinkatu",
-            fullname: "Isoroobertinkatu 23",
-            coords: { latitude: 60.162284, longitude: 24.9380575 }
+            name: "Subway",
+            fullname: "Isoroobertinkatu",
+            coords: { latitude: 60.162284, longitude: 24.9380575 },
+            image: 'logo.png'
         },
         {
-            name: "Subway Forum",
-            fullname: "Mannerheimintie 14-20",
-            coords: { latitude: 60.1681491, longitude: 24.9359927 }
+            name: "Subway",
+            fullname: "Forum",
+            coords: { latitude: 60.1681491, longitude: 24.9359927 },
+            image: 'logo.png'
         },
         {
-            name: "Subway Citycenter",
-            fullname: "Kaivokatu 8",
-            coords: { latitude: 60.1698665, longitude: 24.9413462 }
+            name: "Subway",
+            fullname: "Citycenter",
+            coords: { latitude: 60.1698665, longitude: 24.9413462 },
+            image: 'logo.png'
         },
         {
-            name: "Subway Kaivopiha",
-            fullname: "Mannerheimintie 3-5",
-            coords: { latitude: 60.1693185, longitude: 24.939934 }
+            name: "Subway",
+            fullname: "Kaivopiha",
+            coords: { latitude: 60.1693185, longitude: 24.939934 },
+            image: 'logo.png'
         },
+        {
+            name: "Subway",
+            fullname: "Jätkäsaari",
+            coords: { latitude: 60.1563113, longitude: 24.9212361 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Ruoholahti",
+            coords: { latitude: 60.163655, longitude: 24.9113461 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Kluuvi",
+            coords: { latitude: 60.163655, longitude: 24.9113461 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Kaisaniemi",
+            coords: { latitude: 60.1715774, longitude: 24.9472348 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Mannerheimintie",
+            coords: { latitude: 60.1808961, longitude: 24.9274749 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Porthaninkatu",
+            coords: { latitude: 60.1823502, longitude: 24.9521318 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Sörnäisten rantatie",
+            coords: { latitude: 60.1831564, longitude: 24.9629599 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Teollisuuskatu",
+            coords: { latitude: 60.19429, longitude: 24.9477558 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Mäkelänkatu",
+            coords: { latitude: 60.1950419, longitude: 24.9565078 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Pasilan asema",
+            coords: { latitude: 60.1987986, longitude: 24.9339645 },
+            image: 'logo.png'
+        },
+        {
+            name: "Subway",
+            fullname: "Tullinpuomi",
+            coords: { latitude: 60.1921348, longitude: 24.9097241 },
+            image: 'logo.png'
+        },
+
     ];
 
     constructor(public http: HttpClient) {
@@ -75,15 +148,17 @@ export class SubwayProvider {
     getMenu(restaurant: number) {
         return Observable.create(observer => {
             const d = new Date();
-            const day = d.getDay();
+            const day = d.getDay() - 1;
 
             const name = this.restaurants[restaurant].name;
             const address = this.restaurants[restaurant].fullname;
             const coords = this.restaurants[restaurant].coords;
+            const image = this.restaurants[restaurant].image;
 
-            const item = new LunchItem([{food: `Päivän subi: ${this.daily_sub[day-1].name}`, diets: ''}]);
+            const item = new LunchItem([{food: `Päivän subi: ${this.daily_sub[day].name}`, diets: ''}]);
+            const weekend = false;
 
-            const menu = new LunchMenu(name, address, [item], coords);
+            const menu = new LunchMenu(name, address, [item], coords, image, weekend);
 
             observer.next(menu);
             observer.complete();

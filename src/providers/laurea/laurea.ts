@@ -17,7 +17,8 @@ export class LaureaProvider {
     restaurant = {
         name: 'BarLaurea',
         fullname: 'Vanha Maantie 9',
-        coords: { latitude: 60.2227004, longitude: 24.8048904 }
+        coords: { latitude: 60.2227004, longitude: 24.8048904 },
+        image: 'logo.png'
     };
 
     constructor(public http: HttpClient) {
@@ -28,25 +29,34 @@ export class LaureaProvider {
         return Observable.create(observer => {
             this.http.get(this.apiUrl).subscribe((response: any) => {
                 //console.log(response);
+                const d = new Date();
+                const weekday = d.getDay();
+
+                let weekend = false;
+                if (weekday === 0 || weekday === 6) {
+                    weekend = true;
+                }
 
                 const items = new Array();
 
-                // ruokavaihtoehdot
-                response.forEach((item) => {
-                    const food_lines = new Array();
+                if (!weekend) {
+                    // ruokavaihtoehdot
+                    response.forEach((item) => {
+                        const food_lines = new Array();
 
-                    // yhteen ruokaan liittyvät rivit
-                    item.forEach((line) => {
-                        // lisätään rivi ruokaan
-                        food_lines.push({ food: line['item'], diets: line['diets'] });
+                        // yhteen ruokaan liittyvät rivit
+                        item.forEach((line) => {
+                            // lisätään rivi ruokaan
+                            food_lines.push({food: line['item'], diets: line['diets']});
+                        });
+
+                        // ruoka listaan
+                        const food = new LunchItem(food_lines);
+                        items.push(food);
                     });
+                }
 
-                    // ruoka listaan
-                    const food = new LunchItem(food_lines);
-                    items.push(food);
-                });
-
-                const menu = new LunchMenu(this.restaurant.name, this.restaurant.fullname, items, this.restaurant.coords);
+                const menu = new LunchMenu(this.restaurant.name, this.restaurant.fullname, items, this.restaurant.coords, this.restaurant.image, weekend);
 
                 observer.next(menu);
                 observer.complete();

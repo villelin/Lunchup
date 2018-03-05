@@ -28,7 +28,15 @@ export class LocationProvider {
             });
             */
 
-            observer.next( {coords: { latitude: 60.2186027, longitude: 24.8106266}});
+            // Sello
+            //const test_lat = 60.2186027;
+            //const test_lon = 24.8106266;
+
+            // Arabia
+            const test_lat = 60.2051019;
+            const test_lon = 24.970692;
+
+            observer.next( {coords: { latitude: test_lat, longitude: test_lon }});
             observer.complete();
         });
     }

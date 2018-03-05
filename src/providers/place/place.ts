@@ -7,6 +7,7 @@ import {SubwayProvider} from "../subway/subway";
 import {LocationProvider} from "../location/location";
 import {Storage} from "@ionic/storage";
 import {SodexoProvider} from "../sodexo/sodexo";
+import {UnicafeProvider} from "../unicafe/unicafe";
 
 /*
   Generated class for the PlaceProvider provider.
@@ -28,7 +29,8 @@ export class PlaceProvider {
                 public amicaProvider: AmicaProvider,
                 public laureaProvider: LaureaProvider,
                 public subwayProvider: SubwayProvider,
-                public sodexoProvider: SodexoProvider) {
+                public sodexoProvider: SodexoProvider,
+                public unicafeProvider: UnicafeProvider) {
         console.log('Hello PlaceProvider Provider');
 
         this.locationProvider.getLocation().subscribe((response) => {
@@ -45,6 +47,9 @@ export class PlaceProvider {
         }
         for (let i=0; i < this.subwayProvider.getNumRestaurants(); i++) {
             restaurants.push(this.subwayProvider.getMenu(i));
+        }
+        for (let i=0; i < this.unicafeProvider.getNumRestaurants(); i++) {
+            restaurants.push(this.unicafeProvider.getMenu(i));
         }
         restaurants.push(this.laureaProvider.getMenu());
 

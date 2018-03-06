@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {IonicPage, Loading, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the MenuModalPage page.

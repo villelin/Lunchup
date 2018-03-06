@@ -4,7 +4,6 @@ import { FoodModalPage } from './food-modal';
 
 @NgModule({
   declarations: [
-    FoodModalPage,
   ],
   imports: [
     IonicPageModule.forChild(FoodModalPage),

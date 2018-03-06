@@ -4,7 +4,6 @@ import { AllPage } from './all';
 
 @NgModule({
   declarations: [
-    AllPage,
   ],
   imports: [
     IonicPageModule.forChild(AllPage),

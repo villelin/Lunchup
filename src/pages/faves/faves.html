@@ -22,7 +22,7 @@
                         <h2 (click)="presentMenuModal(menu)" class="kymppi">
                             {{ menu.name }}
                         </h2>
-                        <p class="osoite">
+                        <p (click)="presentMenuModal(menu)" class="osoite">
                             {{ menu.address }}
                         </p>
                         <ion-buttons end class="faveButton">

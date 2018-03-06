@@ -18,42 +18,9 @@ import {MenuModalPage} from "../menu-modal/menu-modal";
 })
 export class NearestPage {
 
-    search_term: string = '';
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public placeProvider: PlaceProvider,
                 public storage: Storage, public modalCtrl: ModalController) {
-    }
-
-    setSearchTerm(event){
-        this.search_term = event.target.value;
-    }
-
-
-    search(name: string, food: any) {
-        if (this.search_term === undefined ||
-            this.search_term.length === 0) {
-            return true;
-        }
-
-        let st = this.search_term.toLowerCase();
-        name = name.toLowerCase();
-
-
-        if (name.includes(st)) {
-            return true;
-        }
-
-        let food_found = false;
-        food.forEach((food_item) => {
-            food_item.food.forEach((line) => {
-                const text = line.food.toLowerCase();
-                if (text.includes(st)) {
-                    food_found = true;
-                }
-            });
-        });
-
-        return food_found;
     }
 
     presentMenuModal(item: object) {

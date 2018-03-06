@@ -26,6 +26,8 @@ import {IonicStorageModule} from "@ionic/storage";
 import { UnicafeProvider } from '../providers/unicafe/unicafe';
 import {PipesModule} from "../pipes/pipes.module";
 import {AllPage} from "../pages/all/all";
+import { ImageSearchProvider } from '../providers/image-search/image-search';
+import {FoodModalPage} from "../pages/food-modal/food-modal";
 
 @NgModule({
     declarations: [
@@ -36,7 +38,8 @@ import {AllPage} from "../pages/all/all";
         AllPage,
         MapPage,
         MenuModalPage,
-        RandomModalPage
+        RandomModalPage,
+        FoodModalPage
     ],
     imports: [
         BrowserModule,
@@ -56,7 +59,8 @@ import {AllPage} from "../pages/all/all";
         AllPage,
         MapPage,
         MenuModalPage,
-        RandomModalPage
+        RandomModalPage,
+        FoodModalPage
     ],
     providers: [
         StatusBar,
@@ -70,7 +74,8 @@ import {AllPage} from "../pages/all/all";
     PlaceProvider,
     LaureaProvider,
     SubwayProvider,
-    UnicafeProvider
+    UnicafeProvider,
+    ImageSearchProvider
     ]
 })
 export class AppModule {

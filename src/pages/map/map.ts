@@ -39,7 +39,7 @@ export class MapPage {
     }
 
     markerClick(item: object) {
-        let MenuModal = this.modalCtrl.create(MenuModalPage, item);
+        let MenuModal = this.modalCtrl.create(MenuModalPage, {menu: item});
         MenuModal.present();
     }
 

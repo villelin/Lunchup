@@ -9,9 +9,6 @@ import {Pipe, PipeTransform} from '@angular/core';
     name: 'image',
 })
 export class ImagePipe implements PipeTransform {
-    /**
-     * Takes a value and makes it lowercase.
-     */
 
     baseUrl: string = 'assets/imgs/';
 

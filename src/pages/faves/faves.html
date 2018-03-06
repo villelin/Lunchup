@@ -22,7 +22,7 @@
                         <h2 (click)="presentMenuModal({menu: menu})" class="kymppi">
                             {{ menu.name }}
                         </h2>
-                        <p (click)="presentMenuModal(menu)" class="osoite">
+                        <p (click)="presentMenuModal({menu: menu})" class="osoite">
                             {{ menu.address }}
                         </p>
                         <ion-buttons end class="faveButton">
@@ -40,7 +40,7 @@
                     </ion-toolbar>
                 </ion-list>
                 <ion-card-content *ngFor="let item of menu.items">
-                    <ion-item class="ruokalista">
+                    <ion-item class="ruokalista" (click)="presentFoodModal({food: item})">
                         <section *ngFor="let line of item.food">
                             <p class="ruoka">{{ line.food }} </p>  <p class="allergeenit">{{ line.diets }}</p>
                         </section>

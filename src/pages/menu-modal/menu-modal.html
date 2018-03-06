@@ -21,12 +21,12 @@
 <ion-content no-padding>
     <div class="wrapper">
         <ion-card class="menucard">
-            <img src="{{ menu.image | image }}">
+            <img src="{{ menu_image | image }}">
 
             <ion-list>
                 <ion-toolbar color="primary">
-                    <h2 class="kymppi">{{ menu.name }}</h2>
-                    <p class="osoite">{{ menu.address }}</p>
+                    <h2 class="kymppi">{{ name }}</h2>
+                    <p class="osoite">{{ address }}</p>
 
                 </ion-toolbar>
             </ion-list>
@@ -42,7 +42,7 @@
             <!--</ion-card-content>
             -->
 
-            <ion-card-content *ngFor="let item of menu.items">
+            <ion-card-content *ngFor="let item of items">
                 <ion-item class="ruokalista">
                     <section *ngFor="let line of item.food">
                         <p class="ruoka">{{ line.food }} </p>  <p class="allergeenit">{{ line.diets }}</p>

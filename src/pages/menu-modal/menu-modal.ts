@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, Loading, NavController, NavParams, ViewController} from 'ionic-angular';
 import {LunchMenu} from "../../models/lunchmenu";
+import {LunchItem} from "../../models/lunchitem";
 
 /**
  * Generated class for the MenuModalPage page.
@@ -16,10 +17,19 @@ import {LunchMenu} from "../../models/lunchmenu";
 })
 export class MenuModalPage {
 
-    menu: LunchMenu;
+    name: string = '';
+    address: string = '';
+    items: LunchItem[] = [];
+    menu_image: string = '';
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-        this.menu = navParams.get('menu');
+        const menu: LunchMenu = navParams.get('menu');
+        if (menu !== undefined) {
+            this.name = menu.name;
+            this.address = menu.address;
+            this.items = menu.items;
+            this.menu_image = menu.image;
+        }
     }
 
     ionViewDidLoad() {

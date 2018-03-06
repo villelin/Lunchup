@@ -30,7 +30,8 @@ export class NearestPage {
 
 
     search(name: string, food: any) {
-        if (this.search_term.length === 0) {
+        if (this.search_term === undefined ||
+            this.search_term.length === 0) {
             return true;
         }
 

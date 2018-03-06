@@ -33,8 +33,12 @@ export class LocationProvider {
             //const test_lon = 24.8106266;
 
             // Arabia
-            const test_lat = 60.2051019;
-            const test_lon = 24.970692;
+            //const test_lat = 60.2051019;
+            //const test_lon = 24.970692;
+
+            // Helsinki keskusta
+            const test_lat = 60.1683032;
+            const test_lon = 24.9421915;
 
             observer.next( {coords: { latitude: test_lat, longitude: test_lon }});
             observer.complete();

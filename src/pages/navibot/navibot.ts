@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {FavesPage} from "../faves/faves";
 import {NearestPage} from "../nearest/nearest";
 import {MapPage} from "../map/map";
+import {AllPage} from "../all/all";
 
 /**
  * Generated class for the NavibotPage page.
@@ -13,19 +14,20 @@ import {MapPage} from "../map/map";
 
 @IonicPage()
 @Component({
-  templateUrl: 'navibot.html',
+    templateUrl: 'navibot.html',
 })
 export class NavibotPage {
 
-  tab1Root = FavesPage;
-  tab2Root = NearestPage;
-  tab3Root = MapPage;
+    tab1Root = FavesPage;
+    tab2Root = NearestPage;
+    tab3Root = AllPage;
+    tab4Root = MapPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NavibotPage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad NavibotPage');
+    }
 
 }

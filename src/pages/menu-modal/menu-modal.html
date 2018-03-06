@@ -4,35 +4,50 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-    <ion-navbar>
+    
+    <ion-navbar >
+        <ion-toolbar>
+            <img float-left  class="logoYla" src="assets/imgs/Asset 4.svg">
+            <ion-title  float-left>Ravintolan tiedot</ion-title>
+        </ion-toolbar>
         <ion-buttons class="modalClose" end>
             <button ion-button icon-only color="primary" (click)="dismiss()">
                 <ion-icon name="md-close"></ion-icon>
             </button>
         </ion-buttons>
-
     </ion-navbar>
 
 </ion-header>
 <ion-content no-padding>
     <div class="wrapper">
         <ion-card class="menucard">
+            <img src="{{ menu.image | image }}">
+
             <ion-list>
                 <ion-toolbar color="primary">
-                    <h2 class="kymppi">//NIMI {{ ruokala }}</h2>
-                    <p class="osoite">//osoite  {{ ruokala_osoite }}</p>
+                    <h2 class="kymppi">{{ menu.name }}</h2>
+                    <p class="osoite">{{ menu.address }}</p>
 
                 </ion-toolbar>
             </ion-list>
+            <!--
             <ion-card-content >
                 <ion-item class="ruokalista">
-                    <section>
+                    <section *ngFor="let item of menu.items">
                         <p class="ruoka">tähän tulee jotain </p>
                         <p class="allergeenit"> tähän kans</p>
                     </section>
                 </ion-item>
                 <!--     <ion-img width="100%" height="100%" src="assets/imgs/Lepuski.png"></ion-img> -->
+            <!--</ion-card-content>
+            -->
+
+            <ion-card-content *ngFor="let item of menu.items">
+                <ion-item class="ruokalista">
+                    <section *ngFor="let line of item.food">
+                        <p class="ruoka">{{ line.food }} </p>  <p class="allergeenit">{{ line.diets }}</p>
+                    </section>
+                </ion-item>
             </ion-card-content>
         </ion-card>
 

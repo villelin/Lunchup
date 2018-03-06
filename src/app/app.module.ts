@@ -24,6 +24,8 @@ import {MenuModalPage} from "../pages/menu-modal/menu-modal";
 import {RandomModalPage} from "../pages/random-modal/random-modal";
 import {IonicStorageModule} from "@ionic/storage";
 import { UnicafeProvider } from '../providers/unicafe/unicafe';
+import {PipesModule} from "../pipes/pipes.module";
+import {AllPage} from "../pages/all/all";
 
 @NgModule({
     declarations: [
@@ -31,6 +33,7 @@ import { UnicafeProvider } from '../providers/unicafe/unicafe';
         NavibotPage,
         FavesPage,
         NearestPage,
+        AllPage,
         MapPage,
         MenuModalPage,
         RandomModalPage
@@ -38,6 +41,7 @@ import { UnicafeProvider } from '../providers/unicafe/unicafe';
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
+        PipesModule,
         AgmCoreModule.forRoot({apiKey: 'AIzaSyBQpwzaKXT7X_0aWMQnqU3uIZXbRIiNPgk'}),
         AgmSnazzyInfoWindowModule,
         HttpClientModule,
@@ -49,6 +53,7 @@ import { UnicafeProvider } from '../providers/unicafe/unicafe';
         NavibotPage,
         FavesPage,
         NearestPage,
+        AllPage,
         MapPage,
         MenuModalPage,
         RandomModalPage

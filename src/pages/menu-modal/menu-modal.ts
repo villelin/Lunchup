@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, Loading, NavController, NavParams, ViewController} from 'ionic-angular';
+import {LunchMenu} from "../../models/lunchmenu";
 
 /**
  * Generated class for the MenuModalPage page.
@@ -10,21 +11,23 @@ import {IonicPage, Loading, NavController, NavParams, ViewController} from 'ioni
 
 @IonicPage()
 @Component({
-  selector: 'page-menu-modal',
-  templateUrl: 'menu-modal.html',
+    selector: 'page-menu-modal',
+    templateUrl: 'menu-modal.html',
 })
 export class MenuModalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-  }
+    menu: LunchMenu;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MenuModalPage');
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+        this.menu = navParams.get('menu');
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad MenuModalPage');
+    }
 
     dismiss() {
-        let data = { 'foo': 'bar' };
-        this.viewCtrl.dismiss(data);
+        this.viewCtrl.dismiss();
     }
 
 }

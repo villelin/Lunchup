@@ -19,7 +19,7 @@
                 <ion-list>
                     <ion-toolbar color="primary">
 
-                        <h2 (click)="presentMenuModal(menu)" class="kymppi">
+                        <h2 (click)="presentMenuModal({menu: menu})" class="kymppi">
                             {{ menu.name }}
                         </h2>
                         <p (click)="presentMenuModal(menu)" class="osoite">

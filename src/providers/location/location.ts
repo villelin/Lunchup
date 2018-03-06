@@ -20,24 +20,24 @@ export class LocationProvider {
 
             // TILAPÄISRATKAISU
 
-            /*
+
             this.geoLocation.getCurrentPosition({timeout: 30000}).then((position) => {
                 console.log(position);
                 observer.next(position);
                 observer.complete();
             });
-            */
+
 
             // Sello
             //const test_lat = 60.2186027;
             //const test_lon = 24.8106266;
 
             // Arabia
-            const test_lat = 60.2051019;
-            const test_lon = 24.970692;
+            //const test_lat = 60.2051019;
+            //const test_lon = 24.970692;
 
-            observer.next( {coords: { latitude: test_lat, longitude: test_lon }});
-            observer.complete();
+            //observer.next( {coords: { latitude: test_lat, longitude: test_lon }});
+            //observer.complete();
         });
     }
 }

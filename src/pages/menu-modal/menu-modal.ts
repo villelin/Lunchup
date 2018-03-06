@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {IonicPage, Loading, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the MenuModalPage page.
@@ -14,6 +14,11 @@ import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular
   templateUrl: 'menu-modal.html',
 })
 export class MenuModalPage {
+
+  ruokala: string = '';
+  ruokala_osoite: string = '';
+  //ruokala_kuva: any [];
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }

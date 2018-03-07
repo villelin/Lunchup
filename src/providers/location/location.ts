@@ -20,14 +20,15 @@ export class LocationProvider {
 
             // TILAPÄISRATKAISU
 
-            /*
+
             this.geoLocation.getCurrentPosition({timeout: 30000}).then((position) => {
                 console.log(position);
                 observer.next(position);
                 observer.complete();
             });
-            */
 
+
+            /*
             // Sello
             //const test_lat = 60.2186027;
             //const test_lon = 24.8106266;
@@ -42,6 +43,7 @@ export class LocationProvider {
 
             observer.next( {coords: { latitude: test_lat, longitude: test_lon }});
             observer.complete();
+            */
         });
     }
 }

@@ -40,7 +40,7 @@
                     </ion-toolbar>
                 </ion-list>
                 <ion-card-content *ngFor="let item of menu.items">
-                    <ion-item class="ruokalista" (click)="presentFoodModal({food: item})">
+                    <ion-item class="ruokalista">
                         <section *ngFor="let line of item.food">
                             <p class="ruoka">{{ line.food }} </p>  <p class="allergeenit">{{ line.diets }}</p>
                         </section>

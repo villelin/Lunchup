@@ -4,11 +4,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    
-    <ion-navbar >
+
+    <ion-navbar>
         <ion-toolbar>
-            <img float-left  class="logoYla" src="assets/imgs/Asset 4.svg">
-            <ion-title  float-left>Ravintolan tiedot</ion-title>
+            <img float-left class="logoYla" src="assets/imgs/Asset 4.svg">
+            <ion-title float-left>Ravintolan tiedot</ion-title>
         </ion-toolbar>
         <ion-buttons class="modalClose" end>
             <button ion-button icon-only color="primary" (click)="dismiss()">
@@ -21,7 +21,7 @@
 <ion-content no-padding>
     <div class="wrapper">
         <ion-card class="menucard">
-            <img src="{{ menu_image | image }}">
+
 
             <ion-list>
                 <ion-toolbar color="primary">
@@ -29,6 +29,14 @@
                     <p class="osoite">{{ address }}</p>
 
                 </ion-toolbar>
+                <img src="{{ menu_image | image }}">
+                <agm-map [latitude]="latitude" [longitude]="longitude" [mapDraggable]="false" [minZoom]="14" [maxZoom]="16" [zoom]="15"
+                         [keyboardShortcuts]="false" [gestureHandling]="false" [disableDoubleClickZoom]="true"
+                         [zoomControl]="true" [streetViewControl]="false">
+                    <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="30" [fillOpacity]="0.50"
+                                [fillColor]="'#00009A'"></agm-circle>
+
+                </agm-map>
             </ion-list>
             <!--
             <ion-card-content >
@@ -42,6 +50,7 @@
             <!--</ion-card-content>
             -->
 
+            <!--
             <ion-card-content *ngFor="let item of items">
                 <ion-item class="ruokalista">
                     <section *ngFor="let line of item.food">
@@ -49,6 +58,7 @@
                     </section>
                 </ion-item>
             </ion-card-content>
+            -->
         </ion-card>
 
     </div>

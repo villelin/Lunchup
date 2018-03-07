@@ -23,7 +23,7 @@
 
 <ion-content no-padding>
     <!--<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>-->
-    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15" [zoomControl]="false"
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15" [zoomControl]="true"
              [streetViewControl]="false" [styles]='[
   {
     "elementType": "geometry",
@@ -260,13 +260,7 @@
                     [fillColor]="'#00009A'"></agm-circle>
 
         <agm-marker *ngFor="let menus of placeProvider.menus" [latitude]="menus.location.latitude"
-                    [longitude]="menus.location.longitude" [markerClickable]="true" [iconUrl]="{
-                    url: 'assets/imgs/logo.png',
-                        scaledSize: {
-                            height: 40,
-                            width: 40
-                        }
-                    }"
+                    [longitude]="menus.location.longitude" [markerClickable]="true"
                     (markerClick)="markerClick(menus)">
         </agm-marker>
     </agm-map>

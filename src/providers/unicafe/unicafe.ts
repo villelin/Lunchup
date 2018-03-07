@@ -183,6 +183,10 @@ export class UnicafeProvider {
         console.log('Hello UnicafeProvider Provider');
     }
 
+    formatNumber(number) {
+        return (number < 10 ? '0' : '') + number;
+    }
+
     getNumRestaurants() {
         return this.restaurants.length;
     }
@@ -200,20 +204,26 @@ export class UnicafeProvider {
 
             this.http.get(`${this.apiUrl}/${id}`).subscribe((response) => {
 
-                // index 0 on tämä päivä
-                const list = response['data'][0].data;
-                const items = new Array();
+                const current_date = `${this.formatNumber(d.getDate())}.${this.formatNumber(d.getMonth()+1)}`;
 
-                list.forEach((item) => {
-                    const food = new LunchItem([{food: item.name, diets: item.meta[0]}]);
-                    items.push(food);
+                const items = new Array();
+                
+                // etsitään päivä
+                response['data'].forEach((daymenu) => {
+                    if (daymenu.date.includes(current_date)) {
+                        const list = daymenu.data;
+
+                        list.forEach((item) => {
+                            const food = new LunchItem([{food: item.name, diets: item.meta[0]}]);
+                            items.push(food);
+                        });
+                    }
                 });
 
                 let weekend = false;
                 if (weekday === 0 || weekday === 6) {
                     weekend = true;
                 }
-
 
                 const menu = new LunchMenu(name, address, items, coords, image, weekend);
 

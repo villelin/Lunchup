@@ -18,6 +18,7 @@ import {MenuModalPage} from "../menu-modal/menu-modal";
 export class AllPage {
 
     search_term: string = '';
+    showSearch: boolean = false;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public placeProvider: PlaceProvider,
                 public modalCtrl: ModalController) {
@@ -62,5 +63,9 @@ export class AllPage {
     presentMenuModal(item: object) {
         let MenuModal = this.modalCtrl.create(MenuModalPage, item);
         MenuModal.present();
+    }
+
+    toggleShowSearch() {
+        this.showSearch = !this.showSearch;
     }
 }

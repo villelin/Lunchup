@@ -9,10 +9,10 @@
   <ion-navbar >
     <ion-toolbar>
       <img float-left  class="logoYla" src="assets/imgs/Asset 4.svg">
-      <ion-title  float-left>Kaikki</ion-title>
-      <ion-searchbar id="haku" (ionInput)="setSearchTerm($event)"></ion-searchbar>
+      <ion-title  float-left *ngIf="!showSearch">Kaikki</ion-title>
+      <ion-searchbar *ngIf="showSearch" id="haku" (ionInput)="setSearchTerm($event)"></ion-searchbar>
       <ion-buttons  end>
-          <button ion-button icon-only color="primary" (click)="dismiss()">
+          <button ion-button icon-only color="primary" (click)="toggleShowSearch()">
               <ion-icon name="search"></ion-icon>
           </button>
       </ion-buttons>

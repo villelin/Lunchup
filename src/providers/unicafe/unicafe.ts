@@ -207,7 +207,7 @@ export class UnicafeProvider {
                 const current_date = `${this.formatNumber(d.getDate())}.${this.formatNumber(d.getMonth()+1)}`;
 
                 const items = new Array();
-                
+
                 // etsitään päivä
                 response['data'].forEach((daymenu) => {
                     if (daymenu.date.includes(current_date)) {

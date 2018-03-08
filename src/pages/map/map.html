@@ -58,18 +58,6 @@
     ]
   },
   {
-    "featureType": "administrative.country",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "on"
-      },
-      {
-        "weight": 0.5
-      }
-    ]
-  },
-  {
     "featureType": "administrative.land_parcel",
     "elementType": "labels.text.fill",
     "stylers": [
@@ -87,42 +75,6 @@
       },
       {
         "visibility": "simplified"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.neighborhood",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "landscape.man_made",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "lightness": 70
-      }
-    ]
-  },
-  {
-    "featureType": "landscape.natural",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "landscape.natural.landcover",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "visibility": "on"
       }
     ]
   },
@@ -155,15 +107,6 @@
   },
   {
     "featureType": "poi.park",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "lightness": 75
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
     "elementType": "labels.text.fill",
     "stylers": [
       {
@@ -182,18 +125,6 @@
   },
   {
     "featureType": "road.arterial",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#dc6470"
-      },
-      {
-        "lightness": 70
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
     "elementType": "labels.text.fill",
     "stylers": [
       {
@@ -206,22 +137,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "saturation": 15
-      },
-      {
-        "lightness": 30
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#dc6470"
-      },
-      {
-        "lightness": 65
+        "color": "#dadada"
       }
     ]
   },
@@ -231,18 +147,6 @@
     "stylers": [
       {
         "color": "#616161"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#dc6470"
-      },
-      {
-        "lightness": 75
       }
     ]
   },
@@ -261,15 +165,6 @@
     "stylers": [
       {
         "color": "#e5e5e5"
-      }
-    ]
-  },
-  {
-    "featureType": "transit.line",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#dc6470"
       }
     ]
   },
@@ -296,13 +191,10 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#dc6470"
+        "color": "#dd6570"
       },
       {
-        "lightness": 20
-      },
-      {
-        "visibility": "on"
+        "lightness": 30
       }
     ]
   },
@@ -312,6 +204,9 @@
     "stylers": [
       {
         "color": "#ffffff"
+      },
+      {
+        "lightness": 100
       }
     ]
   }
@@ -321,7 +216,13 @@
                     [fillColor]="'#00009A'"></agm-circle>
 
         <agm-marker *ngFor="let menus of placeProvider.menus" [latitude]="menus.location.latitude"
-                    [longitude]="menus.location.longitude" [markerClickable]="true"
+                    [longitude]="menus.location.longitude" [markerClickable]="true" [iconUrl]="{
+                    url: 'assets/imgs/mini.png',
+                       scaledSize: {
+                            height: 41,
+                            width: 41
+                        }
+                    }"
                     (markerClick)="markerClick(menus)">
         </agm-marker>
     </agm-map>

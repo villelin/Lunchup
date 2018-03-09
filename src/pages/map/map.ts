@@ -22,6 +22,9 @@ export class MapPage {
     latitude: number = 0;
     longitude: number = 0;
 
+    showSearch: boolean = false;
+    searchTerm: string = '';
+
     constructor(public navCtrl: NavController, public navParams: NavParams, private locationProvider: LocationProvider,
                 public placeProvider: PlaceProvider, public modalCtrl: ModalController, public mapStyle: MapStyleProvider) {
     }
@@ -39,9 +42,36 @@ export class MapPage {
         });
     }
 
+    setSearchTerm(event) {
+        this.searchTerm = event.target.value;
+    }
+
+
+    search(name: string, address: string) {
+        if (this.searchTerm === undefined ||
+            this.searchTerm.length === 0) {
+            return true;
+        } else {
+            let st = this.searchTerm.toLowerCase();
+            name = name.toLowerCase();
+            address = address.toLowerCase();
+
+            if (name.includes(st)) {
+                return true;
+            } else if (address.includes(st)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     markerClick(item: object) {
         let MenuModal = this.modalCtrl.create(MenuModalPage, {menu: item, showMap: false, showMenu: true});
         MenuModal.present();
     }
 
+    toggleShowSearch() {
+        this.showSearch = !this.showSearch;
+    }
 }

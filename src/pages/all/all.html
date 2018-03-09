@@ -6,24 +6,25 @@
 -->
 <ion-header>
 
-  <ion-navbar >
-    <ion-toolbar>
-      <img float-left  class="logoYla" src="assets/imgs/Asset 4.svg">
-      <ion-title  float-left *ngIf="!showSearch">Kaikki</ion-title>
-      <ion-searchbar *ngIf="showSearch" id="haku" (ionInput)="setSearchTerm($event)"></ion-searchbar>
-      <ion-buttons  end>
-          <button ion-button icon-only color="primary" (click)="toggleShowSearch()">
-              <ion-icon name="search"></ion-icon>
-          </button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-toolbar>
+            <img float-left class="logoYla" src="assets/imgs/Asset 4.svg">
+            <ion-title float-left *ngIf="!showSearch">Kaikki</ion-title>
+            <ion-searchbar *ngIf="showSearch" id="haku" (ionInput)="setSearchTerm($event)" [animated]="true"
+                           [placeholder]="'Etsi ruoka tai ravintola'"></ion-searchbar>
+            <ion-buttons end>
+                <button ion-button icon-only color="primary" (click)="toggleShowSearch()">
+                    <ion-icon name="search"></ion-icon>
+                </button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content no-padding>
-  <div class="wrapper">
+    <div class="wrapper">
         <span *ngFor="let menu of placeProvider.menus">
             <ion-card *ngIf="search(menu.name, menu.address, menu.items) && (menu.name !== 'Subway')">
                 <ion-list>
@@ -38,11 +39,13 @@
                             </span>
                         <ion-buttons end class="faveButton">
                             <button ion-button icon-right color="royal"
-                                    (click)="placeProvider.removeFavourite(menu.name,menu.address)" *ngIf="menu.favourite">
+                                    (click)="placeProvider.removeFavourite(menu.name,menu.address)"
+                                    *ngIf="menu.favourite">
                                 <ion-icon name="star"></ion-icon>
                             </button>
                             <button ion-button icon-right color="royal"
-                                    (click)="placeProvider.addFavourite(menu.name,menu.address)" *ngIf="!menu.favourite">
+                                    (click)="placeProvider.addFavourite(menu.name,menu.address)"
+                                    *ngIf="!menu.favourite">
                                 <ion-icon name="star-outline"></ion-icon>
                             </button>
                         </ion-buttons>
@@ -67,5 +70,5 @@
                     </ion-card-content>
             </ion-card>
         </span>
-  </div>
+    </div>
 </ion-content>

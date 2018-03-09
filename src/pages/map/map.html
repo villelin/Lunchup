@@ -6,19 +6,23 @@
 -->
 
 
-
 <ion-header>
 
-    <ion-navbar >
+    <ion-navbar>
         <ion-toolbar>
-            <img    id="logoYla" src="assets/imgs/Asset 4.svg">
-            <ion-title class="ylaOtsikko" float-left>Kartta</ion-title>
-
+            <img id="logoYla" src="assets/imgs/Asset 4.svg">
+            <ion-title class="ylaOtsikko" float-left *ngIf="!showSearch">Kartta</ion-title>
+            <ion-searchbar *ngIf="showSearch" id="haku" (ionInput)="setSearchTerm($event)" [animated]="true"
+                           [placeholder]="'Etsi nimi tai osoite'"></ion-searchbar>
+            <ion-buttons end>
+                <button ion-button icon-only color="primary" (click)="toggleShowSearch()">
+                    <ion-icon name="search"></ion-icon>
+                </button>
+            </ion-buttons>
         </ion-toolbar>
     </ion-navbar>
 
 </ion-header>
-
 
 
 <ion-content no-padding>
@@ -29,6 +33,8 @@
         <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="30" [fillOpacity]="0.50"
                     [fillColor]="'#00009A'"></agm-circle>
 
+        <!--
+        <span *ngIf="search(menus.name, menus.address)">
         <agm-marker *ngFor="let menus of placeProvider.menus" [latitude]="menus.location.latitude"
                     [longitude]="menus.location.longitude" [markerClickable]="true" [iconUrl]="{
                     url: 'assets/imgs/mini.png',
@@ -39,5 +45,20 @@
                     }"
                     (markerClick)="markerClick(menus)">
         </agm-marker>
+        </span>
+        -->
+
+        <span *ngFor="let menus of placeProvider.menus">
+            <agm-marker *ngIf="search(menus.name, menus.address)" [latitude]="menus.location.latitude"
+                    [longitude]="menus.location.longitude" [markerClickable]="true" [iconUrl]="{
+                    url: 'assets/imgs/mini.png',
+                       scaledSize: {
+                            height: 41,
+                            width: 41
+                        }
+                    }"
+                    (markerClick)="markerClick(menus)">
+            </agm-marker>
+        </span>
     </agm-map>
 </ion-content>

@@ -22,7 +22,7 @@
             <ion-card *ngIf="placeProvider.isNear(menu.location)">
                 <ion-list>
                     <ion-toolbar color="primary">
-                        <span (click)="presentMenuModal({menu: menu})">
+                        <span (click)="presentMenuModal({menu: menu, showMap: true, showMenu: false})">
                         <h2 class="kymppi">
                             {{ menu.name }}
                         </h2>

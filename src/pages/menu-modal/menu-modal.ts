@@ -23,9 +23,13 @@ export class MenuModalPage {
     address: string = '';
     items: LunchItem[] = [];
     menu_image: string = '';
+    weekend: boolean = false;
 
     latitude: number = 0;
     longitude: number = 0;
+
+    showMap: boolean = false;
+    showMenu: boolean = false;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
                 public locationProvider: LocationProvider, public mapStyle: MapStyleProvider) {
@@ -35,10 +39,14 @@ export class MenuModalPage {
             this.address = menu.address;
             this.items = menu.items;
             this.menu_image = menu.image;
+            this.weekend = menu.weekend;
 
             this.latitude = menu.location.latitude;
             this.longitude = menu.location.longitude;
         }
+
+        this.showMap = navParams.get('showMap');
+        this.showMenu = navParams.get('showMenu');
     }
 
     ionViewDidLoad() {

@@ -30,13 +30,16 @@
 
                 </ion-toolbar>
                 <!--<img src="{{ menu_image | image }}">-->
-                <agm-map [latitude]="latitude" [longitude]="longitude" [mapDraggable]="false" [minZoom]="14" [maxZoom]="16" [zoom]="15"
-                         [keyboardShortcuts]="false" [gestureHandling]="false" [disableDoubleClickZoom]="true"
-                         [zoomControl]="true" [streetViewControl]="false" [styles]="mapStyle.style">
-                    <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="30" [fillOpacity]="0.50"
-                                [fillColor]="'#00009A'"></agm-circle>
+                <span *ngIf="showMap">
+                    <agm-map [latitude]="latitude" [longitude]="longitude" [mapDraggable]="false" [minZoom]="14"
+                             [maxZoom]="16" [zoom]="15"
+                             [keyboardShortcuts]="false" [gestureHandling]="false" [disableDoubleClickZoom]="true"
+                             [zoomControl]="true" [streetViewControl]="false" [styles]="mapStyle.style">
+                        <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="30" [fillOpacity]="0.50"
+                                    [fillColor]="'#00009A'"></agm-circle>
 
-                </agm-map>
+                    </agm-map>
+                </span>
             </ion-list>
             <!--
             <ion-card-content >
@@ -50,15 +53,25 @@
             <!--</ion-card-content>
             -->
 
-            <!--
-            <ion-card-content *ngFor="let item of items">
-                <ion-item class="ruokalista">
-                    <section *ngFor="let line of item.food">
-                        <p class="ruoka">{{ line.food }} </p>  <p class="allergeenit">{{ line.diets }}</p>
-                    </section>
-                </ion-item>
-            </ion-card-content>
-            -->
+            <span *ngIf="showMenu">
+                <ion-card-content *ngFor="let item of items">
+                    <ion-item class="ruokalista">
+                        <section *ngFor="let line of item.food">
+                            <p class="ruoka">{{ line.food }} </p>  <p class="allergeenit">{{ line.diets }}</p>
+                        </section>
+                    </ion-item>
+                </ion-card-content>
+                <ion-card-content *ngIf="weekend">
+                    <p>
+                        Ei ruokaa tarjolla viikonloppuna.
+                    </p>
+                </ion-card-content>
+                <ion-card-content *ngIf="(!weekend && items.length === 0)">
+                    <p>
+                        Ruokalistaa ei saatavilla.
+                    </p>
+                </ion-card-content>
+            </span>
         </ion-card>
 
     </div>

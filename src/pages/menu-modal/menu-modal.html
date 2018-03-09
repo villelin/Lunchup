@@ -29,7 +29,7 @@
                     <p class="osoite">{{ address }}</p>
 
                 </ion-toolbar>
-                <img src="{{ menu_image | image }}">
+                <!--<img src="{{ menu_image | image }}">-->
                 <agm-map [latitude]="latitude" [longitude]="longitude" [mapDraggable]="false" [minZoom]="14" [maxZoom]="16" [zoom]="15"
                          [keyboardShortcuts]="false" [gestureHandling]="false" [disableDoubleClickZoom]="true"
                          [zoomControl]="true" [streetViewControl]="false" [styles]="mapStyle.style">

@@ -28,6 +28,7 @@ import {PipesModule} from "../pipes/pipes.module";
 import {AllPage} from "../pages/all/all";
 import { ImageSearchProvider } from '../providers/image-search/image-search';
 import {FoodModalPage} from "../pages/food-modal/food-modal";
+import { MapStyleProvider } from '../providers/map-style/map-style';
 
 @NgModule({
     declarations: [
@@ -75,7 +76,8 @@ import {FoodModalPage} from "../pages/food-modal/food-modal";
     LaureaProvider,
     SubwayProvider,
     UnicafeProvider,
-    ImageSearchProvider
+    ImageSearchProvider,
+    MapStyleProvider
     ]
 })
 export class AppModule {

@@ -3,6 +3,7 @@ import {IonicPage, Loading, NavController, NavParams, ViewController} from 'ioni
 import {LunchMenu} from "../../models/lunchmenu";
 import {LunchItem} from "../../models/lunchitem";
 import {LocationProvider} from "../../providers/location/location";
+import {MapStyleProvider} from "../../providers/map-style/map-style";
 
 /**
  * Generated class for the MenuModalPage page.
@@ -27,7 +28,7 @@ export class MenuModalPage {
     longitude: number = 0;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
-                public locationProvider: LocationProvider) {
+                public locationProvider: LocationProvider, public mapStyle: MapStyleProvider) {
         const menu: LunchMenu = navParams.get('menu');
         if (menu !== undefined) {
             this.name = menu.name;

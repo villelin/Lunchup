@@ -3,6 +3,7 @@ import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angula
 import {LocationProvider} from "../../providers/location/location";
 import {PlaceProvider} from "../../providers/place/place";
 import {MenuModalPage} from "../menu-modal/menu-modal";
+import {MapStyleProvider} from "../../providers/map-style/map-style";
 
 /**
  * Generated class for the MapPage page.
@@ -22,7 +23,7 @@ export class MapPage {
     longitude: number = 0;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private locationProvider: LocationProvider,
-                public placeProvider: PlaceProvider, public modalCtrl: ModalController) {
+                public placeProvider: PlaceProvider, public modalCtrl: ModalController, public mapStyle: MapStyleProvider) {
     }
 
     ionViewDidLoad() {

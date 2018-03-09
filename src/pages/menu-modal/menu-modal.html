@@ -32,7 +32,7 @@
                 <img src="{{ menu_image | image }}">
                 <agm-map [latitude]="latitude" [longitude]="longitude" [mapDraggable]="false" [minZoom]="14" [maxZoom]="16" [zoom]="15"
                          [keyboardShortcuts]="false" [gestureHandling]="false" [disableDoubleClickZoom]="true"
-                         [zoomControl]="true" [streetViewControl]="false">
+                         [zoomControl]="true" [streetViewControl]="false" [styles]="mapStyle.style">
                     <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="30" [fillOpacity]="0.50"
                                 [fillColor]="'#00009A'"></agm-circle>
 

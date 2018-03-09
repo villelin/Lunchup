@@ -37,27 +37,28 @@ export class AllPage {
         if (this.search_term === undefined ||
             this.search_term.length === 0) {
             return true;
-        }
+        } else {
 
-        let st = this.search_term.toLowerCase();
-        name = name.toLowerCase();
+            let st = this.search_term.toLowerCase();
+            name = name.toLowerCase();
 
 
-        if (name.includes(st)) {
-            return true;
-        }
+            if (name.includes(st)) {
+                return true;
+            }
 
-        let food_found = false;
-        food.forEach((food_item) => {
-            food_item.food.forEach((line) => {
-                const text = line.food.toLowerCase();
-                if (text.includes(st)) {
-                    food_found = true;
-                }
+            let food_found = false;
+            food.forEach((food_item) => {
+                food_item.food.forEach((line) => {
+                    const text = line.food.toLowerCase();
+                    if (text.includes(st)) {
+                        food_found = true;
+                    }
+                });
             });
-        });
 
-        return food_found;
+            return food_found;
+        }
     }
 
     presentMenuModal(item: object) {

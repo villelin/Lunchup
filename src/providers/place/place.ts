@@ -72,6 +72,11 @@ export class PlaceProvider {
                 });
 
             });
+
+            // satunnainen järjestys
+            this.menus.sort(() => {
+                return .5 - Math.random();
+            })
         });
     }
 

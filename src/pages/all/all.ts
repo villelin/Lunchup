@@ -33,7 +33,7 @@ export class AllPage {
     }
 
 
-    search(name: string, food: any) {
+    search(name: string, address: string, food: any) {
         if (this.search_term === undefined ||
             this.search_term.length === 0) {
             return true;
@@ -42,8 +42,14 @@ export class AllPage {
             let st = this.search_term.toLowerCase();
             name = name.toLowerCase();
 
+            address = address.toLowerCase();
+
 
             if (name.includes(st)) {
+                return true;
+            }
+
+            if (address.includes(st)) {
                 return true;
             }
 

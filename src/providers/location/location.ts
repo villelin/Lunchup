@@ -18,9 +18,6 @@ export class LocationProvider {
     getLocation() {
         return Observable.create(observer => {
 
-            // TILAPÄISRATKAISU
-
-
             this.geoLocation.getCurrentPosition({timeout: 30000}).then((position) => {
                 console.log(position);
                 observer.next(position);
@@ -29,6 +26,8 @@ export class LocationProvider {
 
 
             /*
+            // Testausta varten
+
             // Sello
             //const test_lat = 60.2186027;
             //const test_lon = 24.8106266;

@@ -124,7 +124,7 @@ export class PlaceProvider {
     }
 
     public haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
-        const r = 6371e3; // maapallon halkaisija metreinä
+        const r = 6371e3; // maapallon säde metreinä
         const φ1 = this.toRadians(lat1);
         const φ2 = this.toRadians(lat2);
         const Δφ = this.toRadians(lat2-lat1);

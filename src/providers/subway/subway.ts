@@ -14,20 +14,33 @@ import {Observable} from "rxjs/Observable";
 export class SubwayProvider {
 
     daily_sub = [
+        // Sunnuntai
+        {
+            name: 'Kinkku'
+        },
+        // Maanantai
         {
             name: 'Kana Fajita'
-        }, {
+        },
+        // Tiistai
+        {
             name: 'Tonnikala'
-        }, {
+        },
+        // Keskiviikko
+        {
             name: 'Kananrinta'
-        }, {
+        },
+        // Torstai
+        {
             name: 'Italian B.M.T.®'
-        }, {
+        },
+        // Perjantai
+        {
             name: 'Vegan Delite'
-        }, {
+        },
+        // Lauantai
+        {
             name: 'American Steakhouse Melt'
-        }, {
-            name: 'Kinkku'
         }
     ];
 
@@ -148,7 +161,7 @@ export class SubwayProvider {
     getMenu(restaurant: number) {
         return Observable.create(observer => {
             const d = new Date();
-            const day = d.getDay() - 1;
+            const day = d.getDay();
 
             const name = this.restaurants[restaurant].name;
             const address = this.restaurants[restaurant].fullname;

@@ -49,7 +49,7 @@ export class AmicaProvider {
                 const l = response['MenusForDays'];
 
                 // etsitään päivän ruoka
-                if (l !== undefined) {
+                if (l !== undefined && l !== null) {
                     l.forEach((day) => {
                         if (this.isSameDay(new Date(day['Date']), d)) {
                             const list = day['SetMenus'];

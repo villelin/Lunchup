@@ -22,6 +22,9 @@ export class LocationProvider {
                 console.log(position);
                 observer.next(position);
                 observer.complete();
+            }, (error) => {
+                console.log(error);
+                observer.complete();
             });
 
 

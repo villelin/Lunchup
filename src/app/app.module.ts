@@ -29,6 +29,7 @@ import {AllPage} from "../pages/all/all";
 import { ImageSearchProvider } from '../providers/image-search/image-search';
 import {FoodModalPage} from "../pages/food-modal/food-modal";
 import { MapStyleProvider } from '../providers/map-style/map-style';
+import { MasonryModule } from 'angular2-masonry';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { MapStyleProvider } from '../providers/map-style/map-style';
         AgmCoreModule.forRoot({apiKey: 'AIzaSyBQpwzaKXT7X_0aWMQnqU3uIZXbRIiNPgk'}),
         AgmSnazzyInfoWindowModule,
         HttpClientModule,
-        IonicStorageModule.forRoot()
+        IonicStorageModule.forRoot(),
+        MasonryModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [

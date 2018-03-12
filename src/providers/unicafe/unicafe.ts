@@ -214,8 +214,13 @@ export class UnicafeProvider {
                         const list = daymenu.data;
 
                         list.forEach((item) => {
-                            const food = new LunchItem([{food: item.name, diets: item.meta[0]}]);
-                            items.push(food);
+                            const price = item.price.value.student;
+
+                            // lisää vain yli 1.5 euron ruoat
+                            if (parseFloat(price) >= 1.5) {
+                                const food = new LunchItem([{food: item.name, diets: item.meta[0]}]);
+                                items.push(food);
+                            }
                         });
                     }
                 });

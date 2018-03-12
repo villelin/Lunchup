@@ -107,8 +107,14 @@ export class SodexoProvider {
                 const items = new Array();
                 const list = response['courses'];
                 list.forEach((item) => {
-                    const food = new LunchItem([{food: item.title_fi, diets: item.properties}]);
-                    items.push(food);
+                    const regexp = /[0-9]\,[0-9][0-9]/;
+                    const prices = regexp.exec(item.price);
+
+                    // lisää vain yli euron ruoat
+                    if (parseFloat(prices[0]) >= 1.0) {
+                        const food = new LunchItem([{food: item.title_fi, diets: item.properties}]);
+                        items.push(food);
+                    }
                 });
 
                 let weekend = false;

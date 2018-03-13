@@ -17,49 +17,53 @@
 
 </ion-header>
 <ion-content no-padding>
-    <div class="wrapper">
+    <masonry>
         <span *ngFor="let menu of placeProvider.menus">
-            <ion-card *ngIf="placeProvider.isNear(menu.location)">
-                <ion-list>
-                    <ion-toolbar color="primary">
-                        <span (click)="presentMenuModal({menu: menu, showMap: true, showMenu: false})">
-                        <h2 class="kymppi">
-                            {{ menu.name }}
-                        </h2>
-                        <p class="osoite">
-                            {{ menu.address }}
-                        </p>
-                            </span>
-                        <ion-buttons end class="faveButton">
-                            <button ion-button icon-right color="royal"
-                                (click)="placeProvider.removeFavourite(menu.name,menu.address)" *ngIf="menu.favourite">
-                                <ion-icon name="star"></ion-icon>
-                            </button>
-                            <button ion-button icon-right color="royal"
-                                (click)="placeProvider.addFavourite(menu.name,menu.address)" *ngIf="!menu.favourite">
-                                <ion-icon name="star-outline"></ion-icon>
-                            </button>
-                        </ion-buttons>
-                    </ion-toolbar>
-                </ion-list>
-                    <ion-card-content *ngFor="let item of menu.items">
-                        <ion-item class="ruokalista">
-                            <section *ngFor="let line of item.food">
-                                <p class="ruoka">{{ line.food }} </p> <p class="allergeenit"> {{ line.diets }}</p>
-                            </section>
-                        </ion-item>
-                    </ion-card-content>
-                    <ion-card-content *ngIf="menu.weekend">
-                        <p>
-                            Ei ruokaa tarjolla viikonloppuna.
-                        </p>
-                    </ion-card-content>
-                    <ion-card-content *ngIf="(!menu.weekend && menu.items.length === 0)">
-                        <p>
-                            Ruokalistaa ei saatavilla.
-                        </p>
-                    </ion-card-content>
-            </ion-card>
+            <span *ngIf="placeProvider.isNear(menu.location)">
+                <masonry-brick class="brick" style="width: 50%">
+                    <ion-card>
+                        <ion-list>
+                            <ion-toolbar color="primary">
+                                <span (click)="presentMenuModal({menu: menu, showMap: true, showMenu: false})">
+                                <h2 class="kymppi">
+                                    {{ menu.name }}
+                                </h2>
+                                <p class="osoite">
+                                    {{ menu.address }}
+                                </p>
+                                    </span>
+                                <ion-buttons end class="faveButton">
+                                    <button ion-button icon-right color="royal"
+                                        (click)="placeProvider.removeFavourite(menu.name,menu.address)" *ngIf="menu.favourite">
+                                        <ion-icon name="star"></ion-icon>
+                                    </button>
+                                    <button ion-button icon-right color="royal"
+                                        (click)="placeProvider.addFavourite(menu.name,menu.address)" *ngIf="!menu.favourite">
+                                        <ion-icon name="star-outline"></ion-icon>
+                                    </button>
+                                </ion-buttons>
+                            </ion-toolbar>
+                        </ion-list>
+                        <ion-card-content *ngFor="let item of menu.items">
+                            <ion-item class="ruokalista">
+                                <section *ngFor="let line of item.food">
+                                    <p class="ruoka">{{ line.food }} </p> <p class="allergeenit"> {{ line.diets }}</p>
+                                </section>
+                            </ion-item>
+                        </ion-card-content>
+                        <ion-card-content *ngIf="menu.weekend">
+                            <p>
+                                Ei ruokaa tarjolla viikonloppuna.
+                            </p>
+                        </ion-card-content>
+                        <ion-card-content *ngIf="(!menu.weekend && menu.items.length === 0)">
+                            <p>
+                                Ruokalistaa ei saatavilla.
+                            </p>
+                        </ion-card-content>
+                    </ion-card>
+                </masonry-brick>
+            </span>
         </span>
-    </div>
+    </masonry>
 </ion-content>

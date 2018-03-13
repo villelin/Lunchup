@@ -12,7 +12,7 @@
     <!--<section class="logo" (click)="presentRandomModal()">
         <img class="heartbeat" src="assets/imgs/plain.svg">
     </section>-->
-    <masonry>
+    <masonry [options]="masonryOptions">
         <span *ngFor="let menu of placeProvider.menus">
             <span *ngIf="menu.favourite">
                 <masonry-brick class="brick" style="width: 50%">

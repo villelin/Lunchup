@@ -4,6 +4,7 @@ import {MenuModalPage} from "../menu-modal/menu-modal";
 import {RandomModalPage} from "../random-modal/random-modal";
 import {PlaceProvider} from "../../providers/place/place";
 import {FoodModalPage} from "../food-modal/food-modal";
+import {MasonryOptions} from "angular2-masonry";
 
 /**
  * Generated class for the FavesPage page.
@@ -19,6 +20,10 @@ import {FoodModalPage} from "../food-modal/food-modal";
 })
 export class FavesPage {
     images: any = [];
+
+    public masonryOptions: MasonryOptions = {
+        transitionDuration: '0.8s',
+    };
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
                 public placeProvider: PlaceProvider) {

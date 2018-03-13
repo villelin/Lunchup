@@ -24,9 +24,11 @@
 
 
 <ion-content no-padding>
-    <div class="wrapper">
+    <masonry>
         <span *ngFor="let menu of placeProvider.menus">
-            <ion-card *ngIf="search(menu.name, menu.address, menu.items) && (menu.name !== 'Subway')">
+            <span *ngIf="search(menu.name, menu.address, menu.items) && (menu.name !== 'Subway')">
+            <masonry-brick class="brick" style="width: 50%">
+            <ion-card>
                 <ion-list>
                     <ion-toolbar color="primary">
                         <span (click)="presentMenuModal({menu: menu, showMap: true, showMenu: false})">
@@ -69,6 +71,8 @@
                         </p>
                     </ion-card-content>
             </ion-card>
+            </masonry-brick>
+            </span>
         </span>
-    </div>
+    </masonry>
 </ion-content>

@@ -17,7 +17,7 @@
 
 </ion-header>
 <ion-content no-padding>
-    <masonry>
+    <masonry [options]="placeProvider.masonryOptions">
         <span *ngFor="let menu of placeProvider.menus">
             <span *ngIf="placeProvider.isNear(menu.location)">
                 <masonry-brick class="brick" style="width: 50%">

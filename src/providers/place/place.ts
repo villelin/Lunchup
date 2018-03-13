@@ -8,6 +8,7 @@ import {LocationProvider} from "../location/location";
 import {Storage} from "@ionic/storage";
 import {SodexoProvider} from "../sodexo/sodexo";
 import {UnicafeProvider} from "../unicafe/unicafe";
+import {MasonryOptions} from "angular2-masonry/index";
 
 /*
   Generated class for the PlaceProvider provider.
@@ -17,6 +18,12 @@ import {UnicafeProvider} from "../unicafe/unicafe";
 */
 @Injectable()
 export class PlaceProvider {
+
+    public masonryOptions: MasonryOptions = {
+        transitionDuration: '0',
+        percentPosition: true,
+        fitWidth: false
+    };
 
     menus = new Array();
 

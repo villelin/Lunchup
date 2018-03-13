@@ -18,7 +18,6 @@ import {MenuModalPage} from "../menu-modal/menu-modal";
 })
 export class NearestPage {
 
-
     constructor(public navCtrl: NavController, public navParams: NavParams, public placeProvider: PlaceProvider,
                 public storage: Storage, public modalCtrl: ModalController) {
     }

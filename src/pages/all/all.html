@@ -24,7 +24,7 @@
 
 
 <ion-content no-padding>
-    <masonry>
+    <masonry [options]="placeProvider.masonryOptions">
         <span *ngFor="let menu of placeProvider.menus">
             <span *ngIf="search(menu.name, menu.address, menu.items) && (menu.name !== 'Subway')">
             <masonry-brick class="brick" style="width: 50%">

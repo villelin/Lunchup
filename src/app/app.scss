@@ -136,8 +136,10 @@ ion-toolbar {
 }
 
 ion-card {
-  margin-top: 5px !important;
-  margin-bottom: 0 !important;
+  margin-top: 3px !important;
+  margin-bottom: 3px !important;
+  margin-left: 3px !important;
+width: calc(100% - 6px) !important;
 }
 
 

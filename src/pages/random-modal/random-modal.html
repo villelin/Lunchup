@@ -7,15 +7,15 @@
 
 
 <ion-header>
-    <ion-navbar >
+    <ion-navbar>
         <ion-toolbar>
-        <img float-left  class="logoYla" src="assets/imgs/Asset 4.svg">
-        <ion-title  float-left>Satunnainen ruoka</ion-title>
-        <ion-buttons class="modalClose" end>
-            <button ion-button icon-only color="primary" (click)="dismiss()">
-                <ion-icon name="md-close"></ion-icon>
-            </button>
-        </ion-buttons>
+            <img float-left class="logoYla" src="assets/imgs/Asset 4.svg">
+            <ion-title float-left>Satunnainen ruoka</ion-title>
+            <ion-buttons class="modalClose" end>
+                <button ion-button icon-only color="primary" (click)="dismiss()">
+                    <ion-icon name="md-close"></ion-icon>
+                </button>
+            </ion-buttons>
         </ion-toolbar>
     </ion-navbar>
 </ion-header>
@@ -30,7 +30,7 @@
 
                 </ion-toolbar>
             </ion-list>
-            <ion-card-content >
+            <ion-card-content>
                 <ion-item class="ruokalista">
                     <section *ngFor="let line of food">
                         <p class="ruoka">{{ line.food }} </p>
@@ -38,16 +38,10 @@
                     </section>
                 </ion-item>
             </ion-card-content>
-            <!--<ion-buttons *ngIf="done">-->
-                <!--<button ion-button full color="primary" (click)="dismiss()">SULJE</button>-->
-            <!--</ion-buttons>-->
+
         </ion-card>
 
     </div>
-
-
-
-
 
 
 </ion-content>

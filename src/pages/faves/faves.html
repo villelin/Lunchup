@@ -2,16 +2,14 @@
     <ion-navbar>
         <ion-toolbar color="secondary">
             <img class="heartbeat" (click)="presentRandomModal()" float-left id="logoYla" src="assets/imgs/Asset 4.svg">
-            <ion-title class="ylaOtsikko" float-left>Suosikit</ion-title>
+            <ion-title class="ylaOtsikko slide-in-left"  float-left>Suosikit</ion-title>
 
         </ion-toolbar>
     </ion-navbar>
 </ion-header>
 
 <ion-content class="lol" no-padding>
-    <!--<section class="logo" (click)="presentRandomModal()">
-        <img class="heartbeat" src="assets/imgs/plain.svg">
-    </section>-->
+
     <masonry [options]="masonryOptions">
         <span *ngFor="let menu of placeProvider.menus">
             <span *ngIf="menu.favourite">
@@ -63,57 +61,4 @@
         </span>
     </masonry>
 
-    <!--<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200px }'>-->
-    <!--<div class="grid">-->
-    <!--    <div class="grid-sizer"></div>
-        <span *ngFor="let menu of placeProvider.menus">
-            <span *ngIf="menu.favourite">
-            <div class="grid-item">
-            <ion-card >
-                <ion-list>
-                    <ion-toolbar color="primary">
-
-                        <h2 (click)="presentMenuModal({menu: menu, showMap: true, showMenu: false})" class="kymppi">
-                            {{ menu.name }}
-                        </h2>
-                        <p (click)="presentMenuModal({menu: menu, showMap: true, showMenu: false})" class="osoite">
-                            {{ menu.address }}
-                        </p>
-                        <ion-buttons end class="faveButton">
-                            <button ion-button icon-right color="royal"
-                                    (click)="placeProvider.removeFavourite(menu.name,menu.address)"
-                                    *ngIf="menu.favourite">
-                                <ion-icon name="star"></ion-icon>
-                            </button>
-                            <button ion-button icon-right color="royal"
-                                    (click)="placeProvider.addFavourite(menu.name,menu.address)"
-                                    *ngIf="!menu.favourite">
-                                <ion-icon name="star"></ion-icon>
-                            </button>
-                        </ion-buttons>
-                    </ion-toolbar>
-                </ion-list>
-                <ion-card-content *ngFor="let item of menu.items">
-                    <ion-item class="ruokalista">
-                        <section *ngFor="let line of item.food">
-                            <p class="ruoka">{{ line.food }} </p>  <p class="allergeenit">{{ line.diets }}</p>
-                        </section>
-                    </ion-item>
-                </ion-card-content>
-                <ion-card-content *ngIf="menu.weekend">
-                    <p>
-                        Ei ruokaa tarjolla viikonloppuna.
-                    </p>
-                </ion-card-content>
-                <ion-card-content *ngIf="(!menu.weekend && menu.items.length === 0)">
-                    <p>
-                        Ruokalistaa ei saatavilla.
-                    </p>
-                </ion-card-content>
-            </ion-card>
-                </div>
-                </span>
-        </span>
-    </div>
--->
 </ion-content>
